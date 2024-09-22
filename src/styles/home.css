@@ -1,0 +1,22 @@
+/* src/styles/home.css */
+@import '../App.css';
+
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--color-background-light);
+  padding: var(--spacing-xlarge) var(--spacing-medium);
+}
+
+@media (max-width: 768px) {
+  .home-container {
+    padding: var(--spacing-large) var(--spacing-medium);
+  }
+}
+
+@media (max-width: 480px) {
+  .home-container {
+    padding: var(--spacing-medium) var(--spacing-small);
+  }
+}

@@ -1,0 +1,40 @@
+@import '../App.css';
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  background-color: var(--color-background-light);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.logo h1 {
+  font-size: 24px;
+  color: var(--color-button-primary);
+}
+
+.nav-links a {
+  color: var(--color-text-primary);
+  text-decoration: none;
+  margin-right: 30px;
+  font-size: 16px;
+}
+
+.nav-links a:hover {
+  color: var(--color-button-primary);
+}
+
+.cta-header {
+  background-color: var(--color-button-primary);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.cta-header:hover {
+  background-color: var(--color-button-hover);
+}
