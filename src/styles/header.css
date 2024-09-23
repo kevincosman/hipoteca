@@ -1,40 +1,107 @@
-@import '../App.css';
+.header {
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
 
-.header-container {
+.header-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 50px;
-  background-color: var(--color-background-light);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 15px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.logo h1 {
+.logo a {
+  color: #7c3aed;
   font-size: 24px;
-  color: var(--color-button-primary);
-}
-
-.nav-links a {
-  color: var(--color-text-primary);
+  font-weight: bold;
   text-decoration: none;
-  margin-right: 30px;
+}
+
+.nav-menu ul {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-menu ul li {
+  margin-left: 20px;
+}
+
+.nav-menu ul li a {
+  color: #333;
+  text-decoration: none;
   font-size: 16px;
 }
 
-.nav-links a:hover {
-  color: var(--color-button-primary);
-}
-
-.cta-header {
-  background-color: var(--color-button-primary);
+.cta-button {
+  background-color: #7c3aed;
   color: white;
-  padding: 10px 20px;
   border: none;
+  padding: 10px 20px;
   border-radius: 5px;
-  cursor: pointer;
   font-size: 16px;
+  cursor: pointer;
 }
 
-.cta-header:hover {
-  background-color: var(--color-button-hover);
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 25px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.menu-toggle span {
+  width: 30px;
+  height: 3px;
+  background-color: #333;
+  transition: all 0.3s linear;
+}
+
+@media (max-width: 768px) {
+  .nav-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #ffffff;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: none;
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+
+  .nav-menu ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-menu ul li {
+    margin: 10px 0;
+  }
+
+  .cta-button {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
 }

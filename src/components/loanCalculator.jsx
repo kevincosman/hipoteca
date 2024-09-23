@@ -1,97 +1,110 @@
-import React, { useState } from 'react';
-import '../styles/loanCalculator.css';
+import React, { useState, useEffect } from 'react';
 
 const LoanCalculator = () => {
-  const [propertyValue, setPropertyValue] = useState('');
-  const [loanAmount, setLoanAmount] = useState('');
-  const [loanTerm, setLoanTerm] = useState('');
-  const [results, setResults] = useState(null);
+  const [propertyValue, setPropertyValue] = useState(100000);
+  const [loanTerm, setLoanTerm] = useState(12);
+  const [loanAmount, setLoanAmount] = useState(40000);
+  const [interestRateAmerican] = useState(13);
+  const [interestRateFrench] = useState(13);
 
-  const calculateLoan = (e) => {
-    e.preventDefault();
-    const interestRate = 0.15; // 15% anual, ajusta según sea necesario
+  const [americanSystem, setAmericanSystem] = useState({ monthlyPayment: 0, totalPayment: 0 });
+  const [frenchSystem, setFrenchSystem] = useState({ monthlyPayment: 0, totalPayment: 0 });
 
-    // Cálculo del sistema americano
-    const monthlyInterestAmerican = (loanAmount * interestRate) / 12;
-    const monthlyPaymentAmerican = monthlyInterestAmerican;
-    const totalPaymentAmerican = monthlyPaymentAmerican * (loanTerm * 12) + parseFloat(loanAmount);
+  useEffect(() => {
+    const maxLoanAmount = propertyValue * 0.4;
+    setLoanAmount(prevAmount => Math.min(prevAmount, maxLoanAmount));
+  }, [propertyValue]);
 
-    // Cálculo del sistema francés
-    const monthlyInterestFrench = interestRate / 12;
-    const monthlyPaymentFrench = 
-      (loanAmount * monthlyInterestFrench * Math.pow(1 + monthlyInterestFrench, loanTerm * 12)) / 
-      (Math.pow(1 + monthlyInterestFrench, loanTerm * 12) - 1);
-    const totalPaymentFrench = monthlyPaymentFrench * (loanTerm * 12);
+  useEffect(() => {
+    calculateLoan();
+  }, [loanAmount, loanTerm, interestRateAmerican, interestRateFrench]);
 
-    setResults({
-      american: {
-        monthlyPayment: monthlyPaymentAmerican.toFixed(2),
-        totalPayment: totalPaymentAmerican.toFixed(2)
-      },
-      french: {
-        monthlyPayment: monthlyPaymentFrench.toFixed(2),
-        totalPayment: totalPaymentFrench.toFixed(2)
-      },
-      interestRate: (interestRate * 100).toFixed(2),
-      term: loanTerm * 12
+  const calculateLoan = () => {
+    // American System (interest-only payments + principal at end)
+    const monthlyInterestAmerican = (loanAmount * interestRateAmerican) / 100 / 12;
+    const americanMonthlyPayment = monthlyInterestAmerican;
+    const americanTotalPayment = (monthlyInterestAmerican * loanTerm) + loanAmount;
+
+    // French System (equal payments)
+    const r = interestRateFrench / 100 / 12;
+    const frenchMonthlyPayment = (loanAmount * r * Math.pow(1 + r, loanTerm)) / (Math.pow(1 + r, loanTerm) - 1);
+    const frenchTotalPayment = frenchMonthlyPayment * loanTerm;
+
+    setAmericanSystem({
+      monthlyPayment: americanMonthlyPayment.toFixed(2),
+      totalPayment: americanTotalPayment.toFixed(2)
+    });
+    setFrenchSystem({
+      monthlyPayment: frenchMonthlyPayment.toFixed(2),
+      totalPayment: frenchTotalPayment.toFixed(2)
     });
   };
 
+  const formatCurrency = (value) => {
+    return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(value);
+  };
+
   return (
-    <section className="sectionLoanCalculator">
-      <div className="loan-calculator">
-        <h2>Calculadora de Préstamos</h2>
-        <form onSubmit={calculateLoan}>
-          <div className="form-group">
-            <label htmlFor="property-value">Valor del inmueble actual ($):</label>
+    <div className="loan-calculator">
+      <h2>Calculadora de Préstamos Hipotecarios</h2>
+      <div className="calculator-grid">
+        <div className="input-section">
+          <div className="input-group">
+            <label htmlFor="property-value">Valor del inmueble</label>
             <input
               id="property-value"
               type="number"
               value={propertyValue}
-              onChange={(e) => setPropertyValue(e.target.value)}
-              required
+              onChange={(e) => setPropertyValue(Number(e.target.value))}
             />
+            <span className="currency">USD</span>
           </div>
-          <div className="form-group">
-            <label htmlFor="loan-amount">Monto del préstamo a solicitar ($):</label>
+          <div className="input-group">
+            <label htmlFor="loan-amount">Monto del préstamo (máx 40%)</label>
             <input
               id="loan-amount"
               type="number"
               value={loanAmount}
-              onChange={(e) => setLoanAmount(e.target.value)}
-              required
+              max={propertyValue * 0.4}
+              onChange={(e) => setLoanAmount(Number(e.target.value))}
             />
+            <span className="currency">USD</span>
           </div>
-          <div className="form-group">
-            <label htmlFor="loan-term">Plazo del préstamo (años):</label>
-            <input
+          <div className="input-group">
+            <label htmlFor="loan-term">Plazo (meses)</label>
+            <select
               id="loan-term"
-              type="number"
               value={loanTerm}
-              onChange={(e) => setLoanTerm(e.target.value)}
-              required
-            />
+              onChange={(e) => setLoanTerm(Number(e.target.value))}
+            >
+              <option value="12">12 meses</option>
+              <option value="24">24 meses</option>
+              <option value="36">36 meses</option>
+              <option value="48">48 meses</option>
+              <option value="60">60 meses</option>
+            </select>
           </div>
-          <button type="submit" className="calculate-button">Calcular</button>
-        </form>
-        {results && (
-          <div className="results">
-            <h3>Resultados del cálculo:</h3>
-            <div className="result-system">
-              <h4>Sistema Americano:</h4>
-              <p>{results.term} cuotas de ${results.american.monthlyPayment}</p>
-              <p>Pago total: ${results.american.totalPayment}</p>
-            </div>
-            <div className="result-system">
-              <h4>Sistema Francés:</h4>
-              <p>{results.term} cuotas de ${results.french.monthlyPayment}</p>
-              <p>Pago total: ${results.french.totalPayment}</p>
-            </div>
-            <p>Tasa de interés: {results.interestRate}%</p>
+        </div>
+        <div className="results-section">
+          <div className="result-card american">
+            <h3>Sistema Americano</h3>
+            <p>Tasa de interés: <span>{interestRateAmerican}%</span></p>
+            <p>Pago mensual: <span>{formatCurrency(americanSystem.monthlyPayment)}</span></p>
+            <p>Pago total: <span>{formatCurrency(americanSystem.totalPayment)}</span></p>
           </div>
-        )}
+          <div className="result-card french">
+            <h3>Sistema Francés</h3>
+            <p>Tasa de interés: <span>{interestRateFrench}%</span></p>
+            <p>Pago mensual: <span>{formatCurrency(frenchSystem.monthlyPayment)}</span></p>
+            <p>Pago total: <span>{formatCurrency(frenchSystem.totalPayment)}</span></p>
+          </div>
+        </div>
       </div>
-    </section>
+      <div className="button-group">
+        <button className="primary">Solicitar Préstamo</button>
+        <button className="secondary">Consultar con Asesor</button>
+      </div>
+    </div>
   );
 };
 

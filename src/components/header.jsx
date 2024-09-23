@@ -1,21 +1,30 @@
-import React from 'react';
-import '../styles/header.css'; // Archivo CSS para estilo
-import { Link } from 'react-router-dom';
-
+import React, { useState } from 'react';
+import '../styles/header.css';
 
 const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
-    <header className="header-container">
-      <div className="logo">
-        <h1>Hipotecas Online</h1> {/* Este puede reemplazarse por un logo más adelante */}
+    <header className="header">
+      <div className="header-content">
+        <div className="logo">
+          <a href="/">Hipotecas Online</a>
+        </div>
+        <nav className={`nav-menu ${isMenuOpen ? 'active' : ''}`}>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/nosotros">Nosotros</a></li>
+            <li><a href="/prestamos">Préstamos</a></li>
+            <li><a href="/contacto">Contacto</a></li>
+          </ul>
+        </nav>
+        <button className="cta-button">Solicitá tu préstamo</button>
+        <button className="menu-toggle" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
-      <nav className="nav-links">
-        <Link to="/">Home</Link>
-        <Link to="/nosotros">Nosotros</Link>
-        <Link to="/prestamos">Préstamos</Link>
-        <Link to="/contacto">Contacto</Link>
-      </nav>
-      <button className="cta-header">Solicitá tu préstamo</button>
     </header>
   );
 };

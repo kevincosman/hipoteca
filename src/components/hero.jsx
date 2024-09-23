@@ -4,16 +4,18 @@ import financeImage from '../assests/images/finance.svg';
 
 const Hero = () => {
   return (
-    <section className="hero-container">
+    <div className="hero-container">
       <div className="hero-content">
-        <h1>Obtené el préstamo que necesitas</h1>
-        <p>Calcula tu préstamo y solicita en línea en pocos pasos. Sin papeleo innecesario, sin complicaciones.</p>
-        <button className="cta-button">Calculá tu préstamo ahora</button>
+        <h1 className="hero-title">Obtené el préstamo que necesitas</h1>
+        <p className="hero-description">
+          Calcula tu préstamo y solicita en línea en pocos pasos. Sin papeleo innecesario, sin complicaciones.
+        </p>
+        <button className="hero-button">Calculá tu préstamo ahora</button>
       </div>
       <div className="hero-image">
-        <img src={financeImage} alt="Ilustración de Préstamos" />
+        <img src={financeImage} alt="Crecimiento financiero" />
       </div>
-    </section>
+    </div>
   );
 };
 
