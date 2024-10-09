@@ -27,7 +27,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  "homepage": "https://tu-usuario.github.io/hipotecas",
+  "homepage": "https://kevincosman.io/hipotecas",
   "eslintConfig": {
     "extends": [
       "react-app",
