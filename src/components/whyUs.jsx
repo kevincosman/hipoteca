@@ -12,13 +12,13 @@ const whyUs = () => {
     },
     {
       icon: <Rocket size={24} />,
-      title: "Préstamos de hasta $5000",
-      description: "Flexibilidad en los montos de préstamos para adaptarnos a tus necesidades, con opciones de hasta $5000."
+      title: "Soluciones flexibles para cada tipo de préstamo",
+      description: "Ofrecemos opciones claras y accesibles para que elijas el préstamo que mejor se ajuste a tus necesidades."
     },
     {
       icon: <TrendingUp size={24} />,
-      title: "La mejor TEA disponible",
-      description: "Te garantizamos la Tasa Efectiva Anual más baja posible, maximizando tus ahorros a largo plazo."
+      title: "Tasas competitivas y transparentes",
+      description: "Nuestras tasas están diseñadas para ofrecerte una solución financiera eficiente y confiable."
     }
   ];
 

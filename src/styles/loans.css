@@ -1,0 +1,262 @@
+/* loans.css */
+
+.loans-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.loans-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.loans-title {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.loans-subtitle {
+  font-size: 1.5rem;
+  color: #666;
+}
+
+.loans-intro {
+  background-color: #f0e6ff;
+  border-radius: 12px;
+  padding: 3rem;
+  margin-bottom: 5rem;
+  box-shadow: 0 6px 12px rgba(138, 43, 226, 0.1);
+}
+
+.intro-content h2 {
+  font-size: 2.5rem;
+  color: #8a2be2;
+  margin-bottom: 1.5rem;
+}
+
+.intro-content p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #333;
+}
+
+.loans-types {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+  margin-bottom: 5rem;
+}
+
+.loan-card {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.loan-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 24px rgba(138, 43, 226, 0.2);
+}
+
+.loan-card h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #8a2be2;
+}
+
+.loan-card ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.loan-card ul li {
+  margin-bottom: 0.5rem;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.loan-card ul li::before {
+  content: "✓";
+  color: #8a2be2;
+  position: absolute;
+  left: 0;
+}
+
+.loans-calculator h2 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+.loans-process {
+  margin-bottom: 5rem;
+}
+
+.loans-process h2 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.process-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.process-step {
+  flex: 1 1 250px;
+  max-width: 300px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.process-step.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.process-step:nth-child(1) { transition-delay: 0.1s; }
+.process-step:nth-child(2) { transition-delay: 0.2s; }
+.process-step:nth-child(3) { transition-delay: 0.3s; }
+.process-step:nth-child(4) { transition-delay: 0.4s; }
+.process-step:nth-child(5) { transition-delay: 0.5s; }
+.process-step:nth-child(6) { transition-delay: 0.6s; }
+.process-step:nth-child(7) { transition-delay: 0.7s; }
+
+.step-content {
+  background-color: #f0e6ff;
+  border-radius: 12px;
+  padding: 2rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.step-content:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(138, 43, 226, 0.2);
+}
+
+.step-number {
+  background-color: #8a2be2;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.step-content h3 {
+  font-size: 1.3rem;
+  color: #8a2be2;
+  margin-bottom: 1rem;
+}
+
+.step-content p {
+  font-size: 1rem;
+  color: #666;
+}
+
+.loans-cta {
+  text-align: center;
+  background-color: #f0e6ff;
+  padding: 4rem 2rem;
+  border-radius: 12px;
+}
+
+.loans-cta h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.cta-button {
+  background-color: #8a2be2;
+  color: white;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #7a1dd1;
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .loans-title {
+    font-size: 2.5rem;
+  }
+  
+  .loans-subtitle {
+    font-size: 1.2rem;
+  }
+  
+  .loans-intro {
+    padding: 2rem;
+  }
+  
+  .process-step {
+    flex-basis: calc(50% - 1rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .loans-title {
+    font-size: 2rem;
+  }
+  
+  .loans-subtitle {
+    font-size: 1rem;
+  }
+  
+  .intro-content h2 {
+    font-size: 2rem;
+  }
+  
+  .intro-content p {
+    font-size: 1rem;
+  }
+  
+  .loan-card h3 {
+    font-size: 1.3rem;
+  }
+  
+  .loans-process h2 {
+    font-size: 2rem;
+  }
+  
+  .process-step {
+    flex-basis: 100%;
+  }
+  
+  .loans-cta h2 {
+    font-size: 1.5rem;
+  }
+  
+  .cta-button {
+    padding: 0.7rem 1.4rem;
+    font-size: 1rem;
+  }
+}

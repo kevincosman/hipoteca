@@ -15,7 +15,7 @@ const Header = () => {
             <li><a href="/">Home</a></li>
             <li><a href="/nosotros">Nosotros</a></li>
             <li><a href="/prestamos">Préstamos</a></li>
-            <li><a href="/contacto">Contacto</a></li>
+            <li><a href="/contacto">Ayuda</a></li>
           </ul>
         </nav>
         <button className="cta-button">Solicitá tu préstamo</button>

@@ -6,13 +6,13 @@ const Hero = () => {
   return (
     <div className="hero-container">
       <div className="hero-content">
-        <h1 className="hero-title">Obtené el préstamo que necesitas</h1>
+        <h1 className="hero-title">Tu crédito hipotecario, fácil y rápido</h1>
         <p className="hero-description">
-          Calcula tu préstamo y solicita en línea en pocos pasos. Sin papeleo innecesario, sin complicaciones.
+          Créditos hipotecarios para la compra de su vivienda
         </p>
-        <button className="hero-button">Calculá tu préstamo ahora</button>
+        <button className="hero-button">Calculá tu crédito ahora</button>
       </div>
-      <div className="hero-image">
+      <div className="heroImageFinance">
         <img src={financeImage} alt="Crecimiento financiero" />
       </div>
     </div>

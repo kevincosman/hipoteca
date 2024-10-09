@@ -1,21 +1,27 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
+import ScrollToTop from './components/utils/scrollToTop.jsx';
 import Header from './components/header.jsx';
 import Home from './components/home.jsx'
-import Us from './components/usx.jsx';
+import AboutUs from './components/aboutUs.jsx';
 import Loans from './components/loans.jsx';
-import Contact from './components/contact.jsx';
+import Help from './components/help.jsx';
+import Footer from './components/footer.jsx';
+import ApplicationForm from './components/applicationForm.jsx';
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <Header />
       <Routes>
         <Route exact path="/" element={<Home />} />
-        <Route path="/nosotros" element={<Us />} />
+        <Route path="/nosotros" element={<AboutUs />} />
         <Route path="/prestamos" element={<Loans />} />
-        <Route path="/contacto" element={<Contact />} />
+        <Route path="/ayuda" element={<Help />} />
+        <Route path="/formulario" element={<ApplicationForm />} />
       </Routes>
+      <Footer />
     </Router>
   );
 }

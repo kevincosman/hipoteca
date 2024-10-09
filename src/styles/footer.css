@@ -1,0 +1,68 @@
+/* Footer.css */
+.footer {
+  background-color: #f3f4f6; /* Light gray background */
+  color: #374151; /* Dark gray text for contrast */
+  padding: 1.5rem 0;
+  border-top: 1px solid #e5e7eb; /* Light border for subtle separation */
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 2rem;
+}
+
+.logo a {
+  color: #7c3aed;
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+@media (min-width: 768px) {
+  .footer-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.footer-column h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #1f2937; /* Darker text for headers */
+}
+
+.footer-column ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-column a {
+  
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-column a:hover {
+  color: #7c3aed; /* Purple color from the main page for hover states */
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e5e7eb;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #6b7280; /* Lighter text for the copyright notice */
+}

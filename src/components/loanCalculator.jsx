@@ -1,109 +1,157 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import '../styles/loanCalculator.css';
 
 const LoanCalculator = () => {
+  const [activeSystem, setActiveSystem] = useState('french');
   const [propertyValue, setPropertyValue] = useState(100000);
-  const [loanTerm, setLoanTerm] = useState(12);
   const [loanAmount, setLoanAmount] = useState(40000);
-  const [interestRateAmerican] = useState(13);
-  const [interestRateFrench] = useState(13);
+  const [numberOfPayments, setNumberOfPayments] = useState(24);
+  const [monthlyPayment, setMonthlyPayment] = useState(0);
+  const interestRate = 8; // Ejemplo de tasa en USD
 
-  const [americanSystem, setAmericanSystem] = useState({ monthlyPayment: 0, totalPayment: 0 });
-  const [frenchSystem, setFrenchSystem] = useState({ monthlyPayment: 0, totalPayment: 0 });
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    calculateLoan();
+  }, [loanAmount, numberOfPayments, activeSystem]);
 
   useEffect(() => {
     const maxLoanAmount = propertyValue * 0.4;
     setLoanAmount(prevAmount => Math.min(prevAmount, maxLoanAmount));
   }, [propertyValue]);
 
-  useEffect(() => {
-    calculateLoan();
-  }, [loanAmount, loanTerm, interestRateAmerican, interestRateFrench]);
-
   const calculateLoan = () => {
-    // American System (interest-only payments + principal at end)
-    const monthlyInterestAmerican = (loanAmount * interestRateAmerican) / 100 / 12;
-    const americanMonthlyPayment = monthlyInterestAmerican;
-    const americanTotalPayment = (monthlyInterestAmerican * loanTerm) + loanAmount;
-
-    // French System (equal payments)
-    const r = interestRateFrench / 100 / 12;
-    const frenchMonthlyPayment = (loanAmount * r * Math.pow(1 + r, loanTerm)) / (Math.pow(1 + r, loanTerm) - 1);
-    const frenchTotalPayment = frenchMonthlyPayment * loanTerm;
-
-    setAmericanSystem({
-      monthlyPayment: americanMonthlyPayment.toFixed(2),
-      totalPayment: americanTotalPayment.toFixed(2)
-    });
-    setFrenchSystem({
-      monthlyPayment: frenchMonthlyPayment.toFixed(2),
-      totalPayment: frenchTotalPayment.toFixed(2)
-    });
+    const r = interestRate / 100 / 12;
+    let payment;
+    if (activeSystem === 'french') {
+      payment = (loanAmount * r * Math.pow(1 + r, numberOfPayments)) / (Math.pow(1 + r, numberOfPayments) - 1);
+    } else {
+      payment = (loanAmount * r) + (loanAmount / numberOfPayments);
+    }
+    setMonthlyPayment(payment);
   };
 
   const formatCurrency = (value) => {
-    return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(value);
+    return new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'USD' }).format(value);
+  };
+
+  const handleInputChange = (setter, min, max) => (e) => {
+    const value = e.target.value.replace(/[^\d]/g, '');
+    if (value === '') {
+      setter(min);
+    } else {
+      const numValue = Number(value);
+      setter(Math.max(min, Math.min(max, numValue)));
+    }
+  };
+
+  const handlePropertyValueChange = (increment) => {
+    setPropertyValue(prev => Math.max(50000, prev + increment));
+  };
+
+  const handleNumberOfPaymentsChange = (increment) => {
+    setNumberOfPayments(prev => Math.max(12, Math.min(60, prev + increment)));
+  };
+
+  const getNextPaymentDate = () => {
+    const date = new Date();
+    date.setMonth(date.getMonth() + 1);
+    return date.toLocaleString('es-AR', { month: 'long', day: 'numeric' });
+  };
+
+  const handleSubmit = () => {
+    const calculatorData = {
+      loanAmount,
+      numberOfPayments,
+      system: activeSystem,
+      monthlyPayment,
+      interestRate
+    };
+    navigate('/formulario', { state: { calculatorData } });
   };
 
   return (
     <div className="loan-calculator">
-      <h2>Calculadora de Préstamos Hipotecarios</h2>
-      <div className="calculator-grid">
-        <div className="input-section">
-          <div className="input-group">
-            <label htmlFor="property-value">Valor del inmueble</label>
-            <input
-              id="property-value"
-              type="number"
-              value={propertyValue}
-              onChange={(e) => setPropertyValue(Number(e.target.value))}
-            />
-            <span className="currency">USD</span>
-          </div>
-          <div className="input-group">
-            <label htmlFor="loan-amount">Monto del préstamo (máx 40%)</label>
-            <input
-              id="loan-amount"
-              type="number"
-              value={loanAmount}
-              max={propertyValue * 0.4}
-              onChange={(e) => setLoanAmount(Number(e.target.value))}
-            />
-            <span className="currency">USD</span>
-          </div>
-          <div className="input-group">
-            <label htmlFor="loan-term">Plazo (meses)</label>
-            <select
-              id="loan-term"
-              value={loanTerm}
-              onChange={(e) => setLoanTerm(Number(e.target.value))}
-            >
-              <option value="12">12 meses</option>
-              <option value="24">24 meses</option>
-              <option value="36">36 meses</option>
-              <option value="48">48 meses</option>
-              <option value="60">60 meses</option>
-            </select>
-          </div>
-        </div>
-        <div className="results-section">
-          <div className="result-card american">
-            <h3>Sistema Americano</h3>
-            <p>Tasa de interés: <span>{interestRateAmerican}%</span></p>
-            <p>Pago mensual: <span>{formatCurrency(americanSystem.monthlyPayment)}</span></p>
-            <p>Pago total: <span>{formatCurrency(americanSystem.totalPayment)}</span></p>
-          </div>
-          <div className="result-card french">
-            <h3>Sistema Francés</h3>
-            <p>Tasa de interés: <span>{interestRateFrench}%</span></p>
-            <p>Pago mensual: <span>{formatCurrency(frenchSystem.monthlyPayment)}</span></p>
-            <p>Pago total: <span>{formatCurrency(frenchSystem.totalPayment)}</span></p>
-          </div>
+      <h2 className="calculator-title">Calculá tu préstamo hipotecario</h2>
+      
+      <div className="system-tabs">
+        <button 
+          className={`tab-button ${activeSystem === 'french' ? 'active' : ''}`}
+          onClick={() => setActiveSystem('french')}
+        >
+          Sistema Francés
+        </button>
+        <button 
+          className={`tab-button ${activeSystem === 'american' ? 'active' : ''}`}
+          onClick={() => setActiveSystem('american')}
+        >
+          Sistema Americano
+        </button>
+      </div>
+
+      <div className="input-group">
+        <label>Valor del inmueble</label>
+        <div className="input-with-buttons">
+          <button onClick={() => handlePropertyValueChange(-5000)}>-</button>
+          <input
+            type="text"
+            value={formatCurrency(propertyValue)}
+            onChange={handleInputChange(setPropertyValue, 50000, 10000000)}
+          />
+          <button onClick={() => handlePropertyValueChange(5000)}>+</button>
         </div>
       </div>
-      <div className="button-group">
-        <button className="primary">Solicitar Préstamo</button>
-        <button className="secondary">Consultar con Asesor</button>
+
+      <div className="input-group">
+        <label>Cantidad de cuotas</label>
+        <div className="input-with-buttons">
+          <button onClick={() => handleNumberOfPaymentsChange(-1)}>-</button>
+          <input
+            type="text"
+            value={numberOfPayments}
+            onChange={handleInputChange(setNumberOfPayments, 12, 60)}
+          />
+          <button onClick={() => handleNumberOfPaymentsChange(1)}>+</button>
+        </div>
       </div>
+
+      <div className="loan-amount-container">
+        <label>Monto del préstamo (máx. 40% del valor del inmueble)</label>
+        <div className="loan-amount">{formatCurrency(loanAmount)}</div>
+        <input
+          type="range"
+          min="10000"
+          max={propertyValue * 0.4}
+          step="1000"
+          value={loanAmount}
+          onChange={(e) => setLoanAmount(Number(e.target.value))}
+          className="slider"
+        />
+        <p className="slider-caption">Monto máximo: {formatCurrency(propertyValue * 0.4)}</p>
+      </div>
+
+      <div className="loan-details">
+        <div className="detail-item">
+          <span className="detail-label">Sistema:</span>
+          <span className="detail-value">{activeSystem === 'french' ? 'Francés' : 'Americano'}</span>
+        </div>
+        <div className="detail-item">
+          <span className="detail-label">Tasa de interés:</span>
+          <span className="detail-value">{interestRate}%</span>
+        </div>
+        <div className="detail-item">
+          <span className="detail-label">Cuota mensual:</span>
+          <span className="detail-value">{formatCurrency(monthlyPayment)}</span>
+        </div>
+        <div className="detail-item">
+          <span className="detail-label">Primer vencimiento:</span>
+          <span className="detail-value">{getNextPaymentDate()}</span>
+        </div>
+      </div>
+      
+      <button className="action-button" onClick={handleSubmit}>Solicitá tu préstamo hoy</button>
+      <p className="disclaimer">* Sujeto a aprobación crediticia</p>
     </div>
   );
 };
