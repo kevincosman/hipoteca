@@ -25,7 +25,6 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "homepage": "https://kevincosman.github.io/hipoteca/",
   "eslintConfig": {
     "extends": [
       "react-app",
