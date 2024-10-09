@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/hipotecas/static/css/main.67ab894d.css",
+    "main.js": "/hipotecas/static/js/main.d5b38211.js",
+    "static/js/453.ab262422.chunk.js": "/hipotecas/static/js/453.ab262422.chunk.js",
+    "static/media/finance.svg": "/hipotecas/static/media/finance.60d5f638238101fea63392693eb1365f.svg",
+    "index.html": "/hipotecas/index.html",
+    "static/media/history.svg": "/hipotecas/static/media/history.cdc54d064183500c364b.svg",
+    "static/media/building.svg": "/hipotecas/static/media/building.3aa11b9aa7780aa8a0f9.svg",
+    "static/media/users.svg": "/hipotecas/static/media/users.939470ddd460fab46578.svg",
+    "static/media/commitment.svg": "/hipotecas/static/media/commitment.def89a0f6e86f9a4f25d.svg",
+    "static/media/innovation.svg": "/hipotecas/static/media/innovation.c4e23a4f7c0c4d6fa01b.svg",
+    "static/media/award.svg": "/hipotecas/static/media/award.624c84d3fcee5f1196ed.svg",
+    "static/media/integrity.svg": "/hipotecas/static/media/integrity.e0edac6ae3fe7186f318.svg",
+    "static/media/responsibility.svg": "/hipotecas/static/media/responsibility.99761006dd0c3e82b3cf.svg",
+    "main.67ab894d.css.map": "/hipotecas/static/css/main.67ab894d.css.map",
+    "main.d5b38211.js.map": "/hipotecas/static/js/main.d5b38211.js.map",
+    "453.ab262422.chunk.js.map": "/hipotecas/static/js/453.ab262422.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.67ab894d.css",
+    "static/js/main.d5b38211.js"
+  ]
+}
