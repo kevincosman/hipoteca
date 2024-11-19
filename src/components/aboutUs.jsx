@@ -1,14 +1,12 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../styles/aboutUs.css';
 
 const AboutUs = () => {
+  const navigate = useNavigate();
+  
   return (
     <div className="about-us-container">
-      <header className="about-us-header">
-        <h1 className="about-us-title">Sobre Nosotros</h1>
-        <p className="about-us-subtitle">Innovando en préstamos hipotecarios desde 2010</p>
-      </header>
-      
       <section className="about-us-intro">
         <div className="intro-content">
           <h2>Nuestra Historia</h2>
@@ -107,7 +105,7 @@ const AboutUs = () => {
       
       <section className="about-us-cta">
         <h2>¿Listo para dar el siguiente paso?</h2>
-        <button className="cta-button">Solicita tu préstamo ahora</button>
+        <button className="cta-button" onClick={() => navigate('/formulario')}>Solicita tu préstamo ahora</button>
       </section>
     </div>
   );

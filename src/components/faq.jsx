@@ -44,7 +44,7 @@ const FAQ = () => {
         ))}
       </div>
       <div className="faq-more">
-        <p>¿Tenés más dudas? <a href="#">Ingresá acá</a></p>
+        <p>¿Tenés más dudas? <a href="/ayuda">Ingresá acá</a></p>
       </div>
     </div>
   );

@@ -1,24 +1,32 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import emailjs from '@emailjs/browser';
+import { Shield, Sparkles, FileCheck, Headphones, User } from 'lucide-react';
 import '../styles/applicationForm.css';
 
-const ApplicationForm = ({ calculatorData }) => {
+const ApplicationForm = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const calculatorData = location.state?.calculatorData || {};
+  
+  const [isVisible, setIsVisible] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
-    dni: '',
-    description: '',
-    loanAmount: calculatorData?.loanAmount || '',
-    numberOfPayments: calculatorData?.numberOfPayments || '',
-    system: calculatorData?.system || 'french'
+    email: '',
+    phone: '',
+    documentType: 'dni',
+    documentNumber: '',
+    comments: ''
   });
 
-  const [isVisible, setIsVisible] = useState(false);
-
   useEffect(() => {
-    setIsVisible(true);
+    setTimeout(() => setIsVisible(true), 100);
   }, []);
 
-  const handleInputChange = (e) => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prevData => ({
       ...prevData,
@@ -26,127 +34,207 @@ const ApplicationForm = ({ calculatorData }) => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Datos del formulario:', formData);
+    setIsSubmitting(true);
+
+    const contentMessage = `
+    Nombre y apellido: ${formData.firstName} ${formData.lastName}
+    Email: ${formData.email}
+    Teléfono: ${formData.phone}
+    Tipo de documento: ${formData.documentType}
+    Número de documento: ${formData.documentNumber}
+    Monto del prestamo: ${calculatorData.loanAmount}
+    Sistema: ${calculatorData.system === 'french' ? 'Francés' : 'Americano'}
+    Plazo: ${calculatorData.numberOfPayments}
+    Observaciones: ${formData.comments}`;
+
+    try {
+      await emailjs.send(
+        'service_kcxjaxg',
+        'template_73d9ot8',
+        {
+          message: contentMessage,
+          to_email: 'kevincosman97@gmail.com',
+        },
+        'FMigd1rBuxkv3LJ-j'
+      );
+      navigate('/success');
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
-    <div className={`application-container ${isVisible ? 'visible' : ''}`}>
-      <div className="application-content">
-        <h1 className="form-title">Solicitud de Préstamo</h1>
-        <p className="form-subtitle">Estás a un paso de hacer realidad tus proyectos. Completa el formulario y nos pondremos en contacto contigo pronto.</p>
-        
-        <form onSubmit={handleSubmit} className="application-form">
-          <div className="form-columns">
-            <div className="form-column">
-              <div className="form-group">
-                <label htmlFor="firstName">Nombre</label>
-                <input
-                  type="text"
-                  id="firstName"
-                  name="firstName"
-                  value={formData.firstName}
-                  onChange={handleInputChange}
-                  required
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="lastName">Apellido</label>
-                <input
-                  type="text"
-                  id="lastName"
-                  name="lastName"
-                  value={formData.lastName}
-                  onChange={handleInputChange}
-                  required
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="dni">DNI</label>
-                <input
-                  type="text"
-                  id="dni"
-                  name="dni"
-                  value={formData.dni}
-                  onChange={handleInputChange}
-                  required
-                />
-              </div>
+    <div className={`appFormContainer ${isVisible ? 'appFormVisible' : ''}`}>
+      <div className="appFormContent">
+        <h1 className="appFormTitle">Solicitud de Préstamo Hipotecario</h1>
+        <p className="appFormSubtitle">Complete los siguientes datos para iniciar su solicitud</p>
+
+        <form onSubmit={handleSubmit} className="appFormGrid">
+          <div className="appFormCol">
+            <div className="appFormGroup">
+              <label>Nombre</label>
+              <input
+                type="text"
+                name="firstName"
+                value={formData.firstName}
+                onChange={handleChange}
+                required
+              />
             </div>
-            <div className="form-column">
-              <div className="form-group">
-                <label htmlFor="loanAmount">Monto del préstamo</label>
-                <input
-                  type="number"
-                  id="loanAmount"
-                  name="loanAmount"
-                  value={formData.loanAmount}
-                  onChange={handleInputChange}
-                  required
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="numberOfPayments">Cantidad de cuotas</label>
-                <input
-                  type="number"
-                  id="numberOfPayments"
-                  name="numberOfPayments"
-                  value={formData.numberOfPayments}
-                  onChange={handleInputChange}
-                  required
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="system">Sistema</label>
-                <select
-                  id="system"
-                  name="system"
-                  value={formData.system}
-                  onChange={handleInputChange}
-                  required
-                >
-                  <option value="french">Francés</option>
-                  <option value="american">Americano</option>
-                </select>
-              </div>
+            <div className="appFormGroup">
+              <label>Email</label>
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div className="appFormGroup">
+              <label>Tipo de documento</label>
+              <select
+                name="documentType"
+                value={formData.documentType}
+                onChange={handleChange}
+                required
+              >
+                <option value="dni">DNI</option>
+                <option value="passport">Pasaporte</option>
+              </select>
             </div>
           </div>
-          <div className="form-group full-width">
-            <label htmlFor="description">Descripción (opcional)</label>
-            <textarea
-              id="description"
-              name="description"
-              value={formData.description}
-              onChange={handleInputChange}
-            />
+          
+          <div className="appFormCol">
+            <div className="appFormGroup">
+              <label>Apellido</label>
+              <input
+                type="text"
+                name="lastName"
+                value={formData.lastName}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div className="appFormGroup">
+              <label>Teléfono</label>
+              <input
+                type="tel"
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div className="appFormGroup">
+              <label>Número de documento</label>
+              <input
+                type="text"
+                name="documentNumber"
+                value={formData.documentNumber}
+                onChange={handleChange}
+                required
+              />
+            </div>
           </div>
-          <button type="submit" className="submit-button">Enviar Solicitud</button>
+          
+          <div className="appFormFullWidth">
+            <div className="appFormGroup">
+              <label>Comentarios adicionales</label>
+              <textarea
+                name="comments"
+                value={formData.comments}
+                onChange={handleChange}
+                rows="4"
+                placeholder="Agregue cualquier información adicional que considere relevante"
+              />
+            </div>
+
+            <button 
+              type="submit" 
+              className="appFormSubmit"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? 'Enviando...' : 'Enviar solicitud'}
+            </button>
+          </div>
         </form>
       </div>
-      <div className="application-sidebar">
-        <h2>¿Por qué elegirnos?</h2>
-        <ul className="benefits-list">
-          <li className="benefit-item">
-            <span className="benefit-icon">🚀</span>
-            <span>Proceso rápido y sencillo</span>
-          </li>
-          <li className="benefit-item">
-            <span className="benefit-icon">💰</span>
-            <span>Tasas competitivas</span>
-          </li>
-          <li className="benefit-item">
-            <span className="benefit-icon">👥</span>
-            <span>Asesoramiento personalizado</span>
-          </li>
-          <li className="benefit-item">
-            <span className="benefit-icon">⏱️</span>
-            <span>Flexibilidad en los plazos</span>
-          </li>
-        </ul>
-        <div className="testimonial">
-          <p>"Gracias a este préstamo, pude expandir mi negocio. El proceso fue muy fácil y el equipo siempre estuvo dispuesto a ayudar."</p>
-          <p className="testimonial-author">- María G.</p>
+
+      <div className="appFormSidebar">
+        <div className="appFormSidebarContent">
+          <h2>Beneficios de nuestros préstamos</h2>
+          
+          <div className="appFormBenefits">
+            {/*<div className="appFormBenefit">
+              <div className="appFormBenefitIcon">
+                <Clock size={24} />
+              </div>
+              <div className="appFormBenefitText">
+                <h3>Respuesta rápida</h3>
+                <p>Evaluación en 24-48hs</p>
+              </div>
+            </div>*/}
+
+            <div className="appFormBenefit">
+              <div className="appFormBenefitIcon">
+                <Shield size={24} />
+              </div>
+              <div className="appFormBenefitText">
+                <h3>Tasa garantizada</h3>
+                <p>Sin variaciones durante el préstamo</p>
+              </div>
+            </div>
+
+            <div className="appFormBenefit">
+              <div className="appFormBenefitIcon">
+                <Sparkles size={24} />
+              </div>
+              <div className="appFormBenefitText">
+                <h3>Total transparencia</h3>
+                <p>Sin gastos ocultos</p>
+              </div>
+            </div>
+
+            <div className="appFormBenefit">
+              <div className="appFormBenefitIcon">
+                <FileCheck size={24} />
+              </div>
+              <div className="appFormBenefitText">
+                <h3>Mínimos requisitos</h3>
+                <p>Documentación simple y clara</p>
+              </div>
+            </div>
+
+            <div className="appFormBenefit">
+              <div className="appFormBenefitIcon">
+                <Headphones size={24} />
+              </div>
+              <div className="appFormBenefitText">
+                <h3>Atención personalizada</h3>
+                <p>Asesoramiento continuo</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="appFormTestimonial">
+            <div className="appFormTestimonialHeader">
+              <div className="appFormTestimonialAvatar">
+                <User size={24} />
+              </div>
+              <div className="appFormTestimonialContent">
+                <p>"El proceso fue muy simple y rápido. En una semana ya tenía mi préstamo aprobado."</p>
+                <div className="appFormTestimonialAuthor">
+                  <span>María G.</span>
+                  <small>Cliente satisfecha</small>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

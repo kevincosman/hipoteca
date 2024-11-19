@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="footer-container">
         <div className="footer-grid">
           <div>
-            <div className="logo">
+            <div className="logo footer-logo">
               <a href="/">Hipotecas Online</a>
             </div>
             <p>Obtenga el préstamo que necesita de manera rápida y sencilla.</p>
@@ -15,10 +15,11 @@ const Footer = () => {
           <div className="footer-column">
             <h3>Enlaces rápidos</h3>
             <ul>
-              <li><a href="#">Inicio</a></li>
-              <li><a href="#">Nosotros</a></li>
-              <li><a href="#">Préstamos</a></li>
-              <li><a href="#">Contacto</a></li>
+              <li><a href="/">Inicio</a></li>
+              <li><a href="/nosotros">Nosotros</a></li>
+              <li><a href="/prestamos">Préstamos</a></li>
+              <li><a href="/ayuda">Ayuda</a></li>
+              <li><a href="/formulario">Formulario</a></li>
             </ul>
           </div>
           <div className="footer-column">

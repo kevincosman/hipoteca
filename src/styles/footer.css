@@ -25,6 +25,10 @@
   text-decoration: none;
 }
 
+.footer-logo {
+  margin-bottom: 1rem;
+}
+
 @media (min-width: 768px) {
   .footer-grid {
     grid-template-columns: repeat(3, 1fr);

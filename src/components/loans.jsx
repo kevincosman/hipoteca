@@ -1,8 +1,10 @@
 import React, { useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../styles/loans.css';
 
 const Loans = () => {
   const processRef = useRef(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -25,12 +27,7 @@ const Loans = () => {
   }, []);
 
   return (
-    <div className="loans-container">
-      <header className="loans-header">
-        <h1 className="loans-title">Nuestros Préstamos</h1>
-        <p className="loans-subtitle">Soluciones financieras adaptadas a tus necesidades</p>
-      </header>
-      
+    <div className="loans-container">      
       <section className="loans-intro">
         <div className="intro-content">
           <h2>Opciones de Financiamiento</h2>
@@ -120,7 +117,7 @@ const Loans = () => {
       
       <section className="loans-cta">
         <h2>¿Listo para dar el siguiente paso?</h2>
-        <button className="cta-button">Solicita tu préstamo ahora</button>
+        <button className="cta-button" onClick={() => navigate('/formulario')}>Solicita tu préstamo ahora</button>
       </section>
     </div>
   );

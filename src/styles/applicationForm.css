@@ -1,227 +1,271 @@
-/* styles/applicationForm.css */
-.application-container {
+.appFormContainer {
   max-width: 1200px;
-  margin: 170px auto;
+  margin: 100px auto;
   display: flex;
   background-color: #fff;
-  border-radius: 20px;
+  border-radius: 24px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  font-family: 'Arial', sans-serif;
   overflow: hidden;
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.5s ease, transform 0.5s ease;
+  margin-top: 12rem;
 }
 
-.application-container.visible {
+.appFormVisible {
   opacity: 1;
   transform: translateY(0);
 }
 
-.application-content {
+/* Estilos del formulario - mantenidos del original */
+.appFormContent {
   flex: 3;
   padding: 40px;
   background: linear-gradient(135deg, #f6f0ff 0%, #ffffff 100%);
 }
 
-.application-sidebar {
-  flex: 2;
-  background-color: #7c3aed;
-  color: white;
-  padding: 40px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-}
-
-.application-sidebar::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
-  animation: pulse 15s infinite;
-}
-
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.1); }
-  100% { transform: scale(1); }
-}
-
-.form-title {
-  font-size: 36px;
-  color: #333;
+.appFormTitle {
+  font-size: 32px;
+  color: #1a1a1a;
   margin-bottom: 10px;
   text-align: center;
+  font-weight: bold;
 }
 
-.form-subtitle {
+.appFormSubtitle {
   font-size: 18px;
   color: #666;
   margin-bottom: 30px;
   text-align: center;
 }
 
-.application-form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+.appFormGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
 }
 
-.form-columns {
-  display: flex;
-  gap: 20px;
-}
-
-.form-column {
-  flex: 1;
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
+.appFormGroup {
   margin-bottom: 20px;
 }
 
-.form-group label {
+.appFormGroup label {
+  display: block;
   font-size: 16px;
-  color: #333;
-  margin-bottom: 5px;
+  color: #4a4a4a;
+  margin-bottom: 8px;
+  font-weight: 500;
 }
 
-.form-group input,
-.form-group textarea,
-.form-group select {
+.appFormGroup input,
+.appFormGroup select,
+.appFormGroup textarea {
+  width: 100%;
   padding: 12px;
   border: 2px solid #e0e0e0;
   border-radius: 8px;
   font-size: 16px;
   transition: all 0.3s ease;
+  background-color: white;
 }
 
-.form-group input:focus,
-.form-group textarea:focus,
-.form-group select:focus {
+.appFormGroup input:focus,
+.appFormGroup select:focus,
+.appFormGroup textarea:focus {
   border-color: #7c3aed;
-  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.2);
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
   outline: none;
 }
 
-.form-group textarea {
+.appFormGroup textarea {
   resize: vertical;
-  min-height: 100px;
+  min-height: 120px;
 }
 
-.full-width {
+.appFormFullWidth {
   grid-column: span 2;
 }
 
-.submit-button {
-  padding: 15px;
+.appFormSubmit {
+  width: 100%;
+  padding: 16px;
   background-color: #7c3aed;
   color: white;
   border: none;
   border-radius: 8px;
   font-size: 18px;
-  font-weight: bold;
+  font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
 }
 
-.submit-button:hover {
+.appFormSubmit:hover {
   background-color: #6d28d9;
   transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(124, 58, 237, 0.3);
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.2);
 }
 
-.submit-button:active {
-  transform: translateY(0);
+.appFormSubmit:disabled {
+  background-color: #9ca3af;
+  cursor: not-allowed;
+  transform: none;
 }
 
-.application-sidebar h2 {
-  font-size: 28px;
-  margin-bottom: 30px;
+/* Sidebar Styles - Mejorados */
+.appFormSidebar {
+  flex: 2;
+  padding: 48px 40px;
+  background-color: #f8f7ff;
   position: relative;
-  z-index: 1;
 }
 
-.benefits-list {
-  list-style-type: none;
-  padding: 0;
-  margin-bottom: 30px;
-}
-
-.benefit-item {
+.appFormSidebarContent {
+  height: 100%;
   display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-  font-size: 18px;
-  position: relative;
-  z-index: 1;
+  flex-direction: column;
 }
 
-.benefit-icon {
+.appFormSidebarContent h2 {
   font-size: 24px;
-  margin-right: 15px;
-  background-color: rgba(255, 255, 255, 0.2);
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  color: #333;
+  margin-bottom: 40px;
+  font-weight: 600;
+}
+
+.appFormBenefits {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.appFormBenefit {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 16px;
+}
+
+.appFormBenefitIcon {
+  width: 48px;
+  height: 48px;
+  background-color: #7c3aed;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
+  color: white;
+  flex-shrink: 0;
 }
 
-.testimonial {
+.appFormBenefitText {
+  flex: 1;
+}
+
+.appFormBenefitText h3 {
+  font-size: 18px;
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.appFormBenefitText p {
+  font-size: 15px;
+  color: #666;
+  line-height: 1.5;
+}
+
+.appFormTestimonial {
+  margin-top: auto;
+  background-color: white;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.appFormTestimonialHeader {
+  display: flex;
+  gap: 20px;
+}
+
+.appFormTestimonialAvatar {
+  width: 48px;
+  height: 48px;
+  background-color: #7c3aed;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.appFormTestimonialContent {
+  flex: 1;
+}
+
+.appFormTestimonialContent p {
+  font-size: 15px;
+  color: #444;
   font-style: italic;
-  margin-top: 40px;
-  padding: 20px;
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
-  position: relative;
-  z-index: 1;
+  line-height: 1.6;
+  margin-bottom: 16px;
 }
 
-.testimonial-author {
-  font-weight: bold;
-  text-align: right;
-  margin-top: 10px;
+.appFormTestimonialAuthor {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.appFormTestimonialAuthor span {
+  font-weight: 600;
+  color: #333;
+  font-size: 16px;
+}
+
+.appFormTestimonialAuthor small {
+  color: #666;
+  font-size: 14px;
 }
 
 @media (max-width: 992px) {
-  .application-container {
+  .appFormContainer {
     flex-direction: column;
-    margin: 20px 10px;
+    margin: 20px;
+    border-radius: 16px;
+    margin-top: 12rem;
   }
 
-  .application-content,
-  .application-sidebar {
+  .appFormGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .appFormFullWidth {
+    grid-column: span 1;
+  }
+
+  .appFormContent,
+  .appFormSidebar {
     padding: 30px;
   }
 
-  .form-columns {
-    flex-direction: column;
+  .appFormBenefits {
+    gap: 24px;
+    margin-bottom: 32px;
   }
 
-  .form-title {
-    font-size: 28px;
+  .appFormBenefit {
+    padding: 12px;
   }
 
-  .form-subtitle {
-    font-size: 16px;
+  .appFormSidebar {
+    background-color: #f8f7ff;
   }
+}
 
-  .application-sidebar h2 {
-    font-size: 24px;
-  }
-
-  .benefit-item {
-    font-size: 16px;
+@media (max-width: 600px) {
+  .appFormContainer {
+    margin-top: 7rem;
   }
 }

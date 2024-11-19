@@ -24,6 +24,7 @@
 }
 
 .loans-intro {
+  margin-top: 9rem;
   background-color: #f0e6ff;
   border-radius: 12px;
   padding: 3rem;
@@ -205,6 +206,9 @@
 }
 
 @media (max-width: 768px) {
+  .loans-container {
+    margin-top: 50px; 
+  }
   .loans-title {
     font-size: 2.5rem;
   }
@@ -214,6 +218,7 @@
   }
   
   .loans-intro {
+    margin-top: 2rem;
     padding: 2rem;
   }
   

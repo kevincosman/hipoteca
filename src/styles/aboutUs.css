@@ -4,24 +4,8 @@
   padding: 2rem;
 }
 
-.about-us-header {
-  text-align: center;
-  margin-bottom: 4rem;
-}
-
-.about-us-title {
-  font-size: 3rem;
-  font-weight: bold;
-  color: #333;
-  margin-bottom: 1rem;
-}
-
-.about-us-subtitle {
-  font-size: 1.5rem;
-  color: #666;
-}
-
 .about-us-intro {
+  margin-top: 9rem;
   display: flex;
   align-items: center;
   gap: 3rem;
@@ -187,7 +171,7 @@
 
 .about-us-values h2 {
   font-size: 2.5rem;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
   color: #333;
 }
 
@@ -324,56 +308,78 @@
 }
 
 @media (max-width: 768px) {
-  .about-us-title {
-    font-size: 2.5rem;
-  }
-  
-  .about-us-subtitle {
-    font-size: 1.2rem;
-  }
-  
   .about-us-intro {
+    margin-top: 5rem;
     flex-direction: column;
     padding: 2rem;
+    text-align: center;
+  }
+
+  .intro-content {
+    flex: 1;
+    width: 100%;
   }
 
   .intro-icon {
-    order: -1;
-    margin-bottom: 2rem;
+    display: none;
   }
 
-  .history-icon {
-    width: 100px;
-    height: 100px;
+  .intro-content h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 1rem;
   }
-  
-  .about-us-features,
-  .testimonial-grid {
+
+  .intro-content p {
+    text-align: center;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .about-us-features {
     grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .feature-card {
+    padding: 1.5rem;
   }
   
   .about-us-stats {
     flex-direction: column;
+    gap: 2rem;
   }
   
   .stat-item {
-    margin-bottom: 2rem;
+    width: 100%;
+    margin-bottom: 0;
   }
   
   .about-us-mission-vision {
     flex-direction: column;
+    gap: 2rem;
   }
   
-  .mission-vision-card {
-    margin-bottom: 2rem;
+  .about-us-values {
+    padding: 2rem;
+  }
+  
+  .values-grid {
+    gap: 1.5rem;
   }
   
   .value-item {
     flex-basis: 100%;
   }
   
-  .about-us-cta h2 {
-    font-size: 1.8rem;
+  .testimonial-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .about-us-cta {
+    margin-top: 3rem;
+    padding: 3rem 1.5rem;
   }
   
   .cta-button {
@@ -383,22 +389,27 @@
 }
 
 @media (max-width: 480px) {
-  .about-us-title {
-    font-size: 2rem;
+  .about-us-container {
+    padding: 1rem;
   }
-  
-  .about-us-subtitle {
-    font-size: 1rem;
+
+  .about-us-intro {
+    margin-top: 4rem;
+    padding: 1.5rem;
   }
-  
+
   .intro-content h2 {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
   
   .intro-content p {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
   
+  .feature-card {
+    padding: 1.25rem;
+  }
+
   .feature-card h3 {
     font-size: 1.3rem;
   }
@@ -411,22 +422,39 @@
     font-size: 1rem;
   }
   
+  .mission-vision-card {
+    padding: 1.5rem;
+  }
+
   .mission-vision-card h2 {
     font-size: 1.8rem;
   }
   
+  .about-us-values {
+    padding: 1.5rem;
+  }
+
   .about-us-values h2 {
     font-size: 2rem;
+    margin-bottom: 2rem;
   }
   
-  .about-us-testimonials h2 {
-    font-size: 2rem;
+  .value-item {
+    padding: 1.25rem;
   }
   
+  .testimonial-card {
+    padding: 1.5rem;
+  }
+
   .testimonial-card p {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
   
+  .about-us-cta {
+    padding: 2rem 1rem;
+  }
+
   .about-us-cta h2 {
     font-size: 1.5rem;
   }
@@ -434,5 +462,7 @@
   .cta-button {
     padding: 0.7rem 1.4rem;
     font-size: 1rem;
+    width: 100%;
+    max-width: 300px;
   }
 }

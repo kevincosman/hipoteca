@@ -29,6 +29,7 @@
   list-style-type: none;
   margin: 0;
   padding: 0;
+  align-items: center;
 }
 
 .nav-menu ul li {
@@ -41,6 +42,16 @@
   font-size: 16px;
 }
 
+.header-buttons {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.nav-buttons {
+  display: none;
+}
+
 .cta-button {
   background-color: #7c3aed;
   color: white;
@@ -49,6 +60,30 @@
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.cta-button:hover {
+  background-color: #6d28d9;
+}
+
+.secondary-button {
+  background-color: transparent;
+  color: #7c3aed;
+  border: 2px solid #7c3aed;
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.secondary-button:hover {
+  background-color: #f3f0ff;
+  border-color: #6d28d9;
+  color: #6d28d9;
 }
 
 .menu-toggle {
@@ -97,11 +132,29 @@
     margin: 10px 0;
   }
 
-  .cta-button {
+  .nav-buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 15px;
+    flex-direction: column;
+    width: 100%;
+    padding: 0 20px;
+  }
+
+  .nav-buttons button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .header-buttons {
     display: none;
   }
 
   .menu-toggle {
     display: flex;
+  }
+
+  .logo a {
+    font-size: 20px;
   }
 }

@@ -1,74 +1,201 @@
+/* hero.css */
+.hero-section {
+  position: relative;
+  background-color: #ffffff;
+  padding-top: 4rem;
+  overflow: hidden;
+  scroll-behavior: smooth; /* Añadido para scroll suave */
+}
+
 .hero-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 48px 16px;
-  max-width: 1200px;
+  max-width: 1280px;
   margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: center;
 }
 
 .hero-content {
-  width: 100%;
-  margin-bottom: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
 }
 
 .hero-title {
-  font-size: 36px;
-  font-weight: bold;
-  color: #333;
-  margin-bottom: 16px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+
+.title-line {
+  display: block;
+  font-size: 3rem;
+  margin-bottom: 0.25rem;
+  opacity: 0;
+}
+
+.accent-text {
+  color: #7c3aed;
 }
 
 .hero-description {
-  font-size: 18px;
-  color: #666;
-  margin-bottom: 24px;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  color: #6b7280;
+  line-height: 1.5;
+  margin-bottom: 2rem;
+  opacity: 0;
 }
 
-.hero-button {
-  background-color: #8a2be2;
+/* Animaciones del título */
+@keyframes slideInTitle {
+  0% {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Animación del subtítulo */
+@keyframes slideInDescription {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-title .title-line {
+  animation: slideInTitle 0.8s ease-out forwards;
+}
+
+.animate-title .title-line:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.animate-title .title-line:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.animate-title .title-line:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.animate-description {
+  animation: slideInDescription 0.8s ease-out forwards;
+  animation-delay: 0.6s;
+}
+
+/* Estilo del botón CTA */
+.cta-button {
+  background-color: #7c3aed;
   color: white;
-  font-weight: bold;
-  padding: 12px 24px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 1.125rem;
+  padding: 1rem 2.5rem;
+  border-radius: 0.75rem;
   border: none;
-  border-radius: 8px;
-  font-size: 18px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
+  outline: none;
 }
 
-.hero-button:hover {
-  background-color: #553c9a;
+.cta-button:hover {
+  transform: translateY(-2px);
+  background-color: #6d28d9;
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
 }
 
-.heroImageFinance {
-  width: 70%;
+.cta-button:active {
+  transform: translateY(0);
 }
 
-.heroImageFinance img {
-  width: 90%;
+.hero-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.hero-image {
+  width: 100%;
   height: auto;
+  object-fit: contain;
+}
+
+/* Asegurarse de que el scroll sea suave en todo el documento */
+html {
+  scroll-behavior: smooth;
 }
 
 @media (min-width: 768px) {
   .hero-container {
-    flex-direction: row;
-    padding: 64px 32px;
+    grid-template-columns: 1fr 1fr;
+    padding: 2rem;
+    gap: 4rem;
   }
 
   .hero-content {
-    width: 50%;
+    align-items: flex-start;
     text-align: left;
-    margin-bottom: 0;
   }
 
-  .hero-title {
-    font-size: 48px;
+  .title-line {
+    font-size: 3.5rem;
   }
 
-  .heroImageFinance {
-    width: 50%;
+  .hero-description {
+    font-size: 1.125rem;
+  }
+
+  .cta-button {
+    font-size: 1.25rem;
+    padding: 1.25rem 3rem;
+  }
+
+  .hero-image-container {
+    justify-content: flex-end;
+  }
+}
+
+@media (min-width: 1024px) {
+  .title-line {
+    font-size: 4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    margin-top: 3.5rem;
+  }
+
+  .hero-container {
+    padding: 1.5rem;
+  }
+
+  .title-line {
+    font-size: 2.5rem;
+  }
+  
+  .hero-description {
+    font-size: 0.875rem;
+  }
+
+  .cta-button {
+    font-size: 1rem;
+    padding: 0.875rem 2rem;
   }
 }

@@ -1,0 +1,458 @@
+/* styles/realEstateForm.css */
+.estateForm-container {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.4s ease-out;
+}
+
+.estateForm-container.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hero Section */
+.estateForm-hero {
+  background: linear-gradient(to right, #7c3aed, #8b5cf6);
+  padding: 80px 20px;
+  text-align: center;
+  margin-top: 70px;
+}
+
+.estateForm-hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.estateForm-hero-content h1 {
+  font-size: 42px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+
+.estateForm-hero-content p {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Benefits Section */
+.estateForm-benefits {
+  padding: 60px 20px;
+  background-color: #f8fafc;
+}
+
+.estateForm-benefits-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.estateForm-benefit-card {
+  background: white;
+  padding: 24px;
+  border-radius: 12px;
+  text-align: center;
+  transition: transform 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.estateForm-benefit-card:hover {
+  transform: translateY(-4px);
+}
+
+.estateForm-benefit-icon {
+  width: 32px;
+  height: 32px;
+  color: #7c3aed;
+  margin-bottom: 16px;
+}
+
+.estateForm-benefit-card h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 8px;
+}
+
+.estateForm-benefit-card p {
+  font-size: 16px;
+  color: #6b7280;
+}
+
+/* Form Section */
+.estateForm-form-section {
+  padding: 60px 20px;
+  background-color: white;
+}
+
+.estateForm-form-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.estateForm-form-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.estateForm-form-header h2 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 8px;
+}
+
+.estateForm-form-header p {
+  font-size: 18px;
+  color: #6b7280;
+}
+
+.estateForm-form {
+  background: white;
+  padding: 32px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.estateForm-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.estateForm-form-group {
+  margin-bottom: 16px;
+}
+
+.estateForm-form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+.estateForm-form-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: #4b5563;
+  margin-bottom: 6px;
+}
+
+.estateForm-input,
+.estateForm-textarea {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 16px;
+  color: #1a1a1a;
+  transition: all 0.2s ease;
+}
+
+.estateForm-input:focus,
+.estateForm-textarea:focus {
+  outline: none;
+  border-color: #7c3aed;
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
+}
+
+.estateForm-textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.estateForm-submit-button {
+  width: 100%;
+  padding: 12px 24px;
+  background-color: #7c3aed;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 24px;
+}
+
+.estateForm-submit-button:hover {
+  background-color: #6d28d9;
+}
+
+.estateForm-submit-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.estateForm-disclaimer {
+  text-align: center;
+  font-size: 14px;
+  color: #6b7280;
+  margin-top: 16px;
+}
+
+.estateForm-alert {
+  margin-bottom: 24px;
+}
+
+/* Success State */
+.estateForm-success {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: #f8fafc;
+}
+
+.estateForm-success-content {
+  text-align: center;
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  max-width: 480px;
+}
+
+/* Continuation of styles/realEstateForm.css */
+
+.estateForm-success-icon {
+  color: #22c55e;
+  margin-bottom: 24px;
+}
+
+.estateForm-success-content h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 12px;
+}
+
+.estateForm-success-content p {
+  color: #6b7280;
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+
+.estateForm-back-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  background-color: #7c3aed;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.estateForm-back-button:hover {
+  background-color: #6d28d9;
+  transform: translateY(-2px);
+}
+
+.estateForm-back-button:active {
+  transform: translateY(0);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .estateForm-hero {
+    padding: 60px 20px;
+    margin-top: 60px;
+  }
+
+  .estateForm-hero-content h1 {
+    font-size: 32px;
+  }
+
+  .estateForm-hero-content p {
+    font-size: 16px;
+  }
+
+  .estateForm-benefits-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .estateForm-benefit-card {
+    padding: 20px;
+  }
+
+  .estateForm-form-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .estateForm-form {
+    padding: 24px;
+  }
+
+  .estateForm-form-header h2 {
+    font-size: 28px;
+  }
+
+  .estateForm-form-header p {
+    font-size: 16px;
+  }
+
+  .estateForm-submit-button {
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .estateForm-hero-content h1 {
+    font-size: 28px;
+  }
+
+  .estateForm-hero-content p {
+    font-size: 15px;
+  }
+
+  .estateForm-benefit-card h3 {
+    font-size: 18px;
+  }
+
+  .estateForm-benefit-card p {
+    font-size: 14px;
+  }
+
+  .estateForm-form-header h2 {
+    font-size: 24px;
+  }
+
+  .estateForm-form {
+    padding: 20px;
+  }
+
+  .estateForm-input,
+  .estateForm-textarea {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+
+  .estateForm-form-group label {
+    font-size: 13px;
+  }
+
+  .estateForm-disclaimer {
+    font-size: 12px;
+  }
+}
+
+/* Loading State */
+.estateForm-submit-button[disabled] {
+  position: relative;
+  overflow: hidden;
+}
+
+.estateForm-submit-button[disabled]::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+/* Input Focus and Hover States */
+.estateForm-input:hover,
+.estateForm-textarea:hover {
+  border-color: #9f7aea;
+}
+
+.estateForm-input:focus::placeholder,
+.estateForm-textarea:focus::placeholder {
+  color: #9ca3af;
+}
+
+/* Error State Styles */
+.estateForm-input.error,
+.estateForm-textarea.error {
+  border-color: #ef4444;
+}
+
+.estateForm-input.error:focus,
+.estateForm-textarea.error:focus {
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.estateForm-error-message {
+  color: #ef4444;
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+/* Additional Animation Effects */
+.estateForm-benefit-card {
+  transform-origin: center bottom;
+}
+
+.estateForm-benefit-icon {
+  transition: transform 0.3s ease;
+}
+
+.estateForm-benefit-card:hover .estateForm-benefit-icon {
+  transform: scale(1.1);
+}
+
+/* Accessibility Improvements */
+.estateForm-input:focus-visible,
+.estateForm-textarea:focus-visible,
+.estateForm-submit-button:focus-visible {
+  outline: 2px solid #7c3aed;
+  outline-offset: 2px;
+}
+
+/* Print Styles */
+@media print {
+  .estateForm-container {
+    margin: 0;
+    padding: 20px;
+  }
+
+  .estateForm-hero {
+    background: none;
+    padding: 20px 0;
+    margin-top: 0;
+  }
+
+  .estateForm-hero-content h1 {
+    color: #000;
+  }
+
+  .estateForm-hero-content p {
+    color: #333;
+  }
+
+  .estateForm-submit-button,
+  .estateForm-back-button {
+    display: none;
+  }
+}

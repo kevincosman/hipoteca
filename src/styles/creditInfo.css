@@ -1,0 +1,148 @@
+/* creditInfo.css */
+.credit-info {
+  padding: 80px 0;
+  background-color: #fff;
+  font-family: 'Inter', sans-serif;
+}
+
+.credit-info-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.credit-info-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.credit-info-header h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+}
+
+.credit-info-header p {
+  font-size: 1.125rem;
+  color: #7c3aed;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.credit-systems {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+
+.credit-card {
+  background-color: #fff;
+  border-radius: 24px;
+  padding: 40px;
+  transition: all 0.3s ease;
+  position: relative;
+  border: 1px solid #f3f4f6;
+}
+
+.credit-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+.credit-card-icon {
+  width: 64px;
+  height: 64px;
+  background-color: #f3f0ff;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.credit-card-icon svg {
+  color: #7c3aed;
+}
+
+.credit-card h3 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 16px;
+  letter-spacing: -0.01em;
+}
+
+.credit-card-description {
+  font-size: 1rem;
+  color: #4b5563;
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+
+.credit-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.credit-features li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.credit-features li:last-child {
+  margin-bottom: 0;
+}
+
+.credit-features li svg {
+  color: #7c3aed;
+  flex-shrink: 0;
+}
+
+.credit-features li span {
+  font-size: 0.975rem;
+  color: #4b5563;
+}
+
+@media (max-width: 1024px) {
+  .credit-info-container {
+    max-width: 900px;
+  }
+}
+
+@media (max-width: 768px) {
+  .credit-info {
+    padding: 60px 0;
+  }
+
+  .credit-info-header h2 {
+    font-size: 2rem;
+  }
+
+  .credit-systems {
+    grid-template-columns: 1fr;
+  }
+
+  .credit-card {
+    padding: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .credit-info-header h2 {
+    font-size: 1.75rem;
+  }
+
+  .credit-card {
+    padding: 24px;
+  }
+
+  .credit-card h3 {
+    font-size: 1.5rem;
+  }
+}
