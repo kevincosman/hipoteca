@@ -41,9 +41,9 @@
 }
 
 .history-icon {
-  width: 150px;
-  height: 150px;
-  background-image: url('../assests/images/history.svg');
+  width: 280px;
+  height: 250px;
+  background-image: url('../assests/images/timeline.svg');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;

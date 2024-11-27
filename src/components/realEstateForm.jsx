@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import emailjs from '@emailjs/browser';
-import { CheckCircle2, Building2, Users, Wallet } from 'lucide-react';
+import { Building2, Users, Wallet } from 'lucide-react';
 import '../styles/realEstateForm.css';
 
 const RealEstateForm = () => {
@@ -17,8 +17,6 @@ const RealEstateForm = () => {
     message: ''
   });
 
-  const [submitted, setSubmitted] = useState(false);
-  const [error, setError] = useState(null);
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -35,16 +33,8 @@ const RealEstateForm = () => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    
-    if (!formData.companyName || !formData.email || !formData.phone) {
-      setError('Por favor complete todos los campos requeridos');
-      return;
-    }
-
+    e.preventDefault();    
     setIsSubmitting(true);
-    setError(null);
-
     const contentMessage = `
     Inmobiliaria: ${formData.companyName}
     Nombre y apellido del contacto: ${formData.contactName}
@@ -64,32 +54,13 @@ const RealEstateForm = () => {
         },
         'FMigd1rBuxkv3LJ-j'
       );
-
-      setSubmitted(true);
+      navigate('/success');
     } catch (error) {
-      setError('Hubo un error al enviar el formulario. Por favor intente nuevamente.');
+      navigate('/error');
     } finally {
       setIsSubmitting(false);
     }
   };
-
-  if (submitted) {
-    return (
-      <div className="estateForm-success">
-        <div className="estateForm-success-content">
-          <CheckCircle2 size={48} className="estateForm-success-icon" />
-          <h2>¡Gracias por tu interés!</h2>
-          <p>Tu solicitud ha sido enviada correctamente. Nos pondremos en contacto contigo dentro de las próximas 24-48 horas.</p>
-          <button 
-            onClick={() => navigate('/')} 
-            className="estateForm-back-button"
-          >
-            Volver al inicio
-          </button>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className={`estateForm-container ${isVisible ? 'visible' : ''}`}>

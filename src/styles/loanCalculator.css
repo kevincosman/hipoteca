@@ -1,12 +1,13 @@
 /* styles/loanCalculator.css */
 .loan-calculator {
   max-width: 600px;
-  margin: -35px auto;
+  margin: 35px auto;
   padding: 30px;
   background-color: #fff;
   border-radius: 20px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   font-family: 'Arial', sans-serif;
+  scroll-margin-top: 120px; /* Ajusta este valor según necesites */
 }
 
 .calculator-title {
@@ -200,7 +201,7 @@
 @media (max-width: 768px) {
   .loan-calculator {
     padding: 20px;
-    margin: 20px 10px;
+    margin: 25px;
     border-radius: 15px;
   }
 

@@ -10,7 +10,8 @@ import Footer from './components/footer.jsx';
 import ApplicationForm from './components/applicationForm.jsx';
 import RealEstateForm from './components/realEstateForm.jsx';
 import WhatsAppButton from './components/utils/whatsappButton.jsx';
-
+import SuccessPage from './components/successPage.jsx';
+import ErrorPage from './components/errorPage.jsx';
 
 function App() {
   return (
@@ -24,6 +25,8 @@ function App() {
         <Route path="/ayuda" element={<FaqPage />} />
         <Route path="/formulario" element={<ApplicationForm />} />
         <Route path="/inmobiliaria" element={<RealEstateForm />} />
+        <Route path="/success" element={<SuccessPage />} />
+        <Route path="/error" element={<ErrorPage />} />
       </Routes>
       <WhatsAppButton />
       <Footer />

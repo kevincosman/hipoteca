@@ -1,7 +1,5 @@
 import React from 'react';
 import '../styles/whyUs.css';
-import { Clock, Rocket, TrendingUp } from 'lucide-react';
-
 
 const FeatureCard = ({ icon, title, description }) => {
   return (
@@ -11,7 +9,7 @@ const FeatureCard = ({ icon, title, description }) => {
     </div>
       <h3>{title}</h3>
       <p>{description}</p>
-      <a href="#" className="learn-more">Cómo funciona</a>
+      <a href="/prestamos" className="learn-more">Cómo funciona</a>
     </div>
   );
 };

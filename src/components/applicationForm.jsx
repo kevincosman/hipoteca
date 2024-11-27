@@ -62,6 +62,7 @@ const ApplicationForm = () => {
       navigate('/success');
     } catch (error) {
       console.error(error);
+      navigate('/error');
     } finally {
       setIsSubmitting(false);
     }
