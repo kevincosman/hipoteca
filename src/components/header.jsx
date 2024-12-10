@@ -7,7 +7,12 @@ const Header = () => {
   const navigate = useNavigate();
 
   const handleInmobiliariaClick = () => {
+    closeMenu();
     navigate('/inmobiliaria');
+  };
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
   };
 
   return (
@@ -18,12 +23,17 @@ const Header = () => {
         </div>
         <nav className={`nav-menu ${isMenuOpen ? 'active' : ''}`}>
           <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/nosotros">Nosotros</a></li>
-            <li><a href="/prestamos">Préstamos</a></li>
-            <li><a href="/ayuda">Ayuda</a></li>
+            <li><a href="/" onClick={closeMenu}>Home</a></li>
+            <li><a href="/nosotros" onClick={closeMenu}>Nosotros</a></li>
+            <li><a href="/prestamos" onClick={closeMenu}>Préstamos</a></li>
+            <li><a href="/ayuda" onClick={closeMenu}>Ayuda</a></li>
             <li className="nav-buttons">
-              <button className="cta-button" onClick={() => navigate('/formulario')}>
+              <button
+                className="cta-button"
+                onClick={() => {
+                  closeMenu();
+                  navigate('/formulario');
+                }}>
                 Solicitá tu préstamo
               </button>
               <button className="secondary-button" onClick={handleInmobiliariaClick}>

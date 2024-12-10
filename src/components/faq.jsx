@@ -27,7 +27,7 @@ const FAQ = () => {
     },
     {
       question: "¿Cuánto dinero online puedo solicitar en Hipotecas Online?",
-      answer: "El monto que puedes solicitar depende de varios factores, incluyendo el valor de la propiedad y tu capacidad de pago. Generalmente, ofrecemos préstamos de hasta el 40% del valor de tasación de la propiedad."
+      answer: "El monto que puedes solicitar depende de varios factores, incluyendo el valor de la propiedad y tu capacidad de pago. Generalmente, ofrecemos préstamos de hasta el 50% del valor de tasación de la propiedad."
     },
     {
       question: "¿Cómo sigue el proceso una vez que solicito un préstamo en Hipotecas Online?",

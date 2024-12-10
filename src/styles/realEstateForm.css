@@ -152,6 +152,8 @@
   font-size: 16px;
   color: #1a1a1a;
   transition: all 0.2s ease;
+  font-family: 'Arial', sans-serif;
+  font-size: 16px;
 }
 
 .estateForm-input:focus,
@@ -401,6 +403,12 @@
 .estateForm-input.error:focus,
 .estateForm-textarea.error:focus {
   box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.estateForm-textarea::placeholder {
+  font-family: 'Arial', sans-serif;
+  color: #9ca3af;
+  font-size: 16px;
 }
 
 .estateForm-error-message {

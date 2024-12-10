@@ -92,19 +92,19 @@ const FAQPage = () => {
       questions: [
         {
           question: '¿Qué tipos de préstamos ofrecen?',
-          answer: 'Ofrecemos dos tipos principales de préstamos: Sistema Francés (hasta 5 años de plazo) y Sistema Americano (hasta 2 años de plazo). Ambos sistemas tienen tasas fijas entre 13% y 16% anual en dólares.'
+          answer: 'Ofrecemos dos tipos principales de préstamos: el Sistema Francés y el Sistema Americano. En el Sistema Francés, los pagos mensuales son fijos, lo que implica que siempre se abonará la misma cantidad cada mes. Inicialmente, una mayor proporción de este pago corresponde al interés, pero con el paso del tiempo, una parte mayor se destina a reducir el capital del préstamo. Este sistema es ideal para quienes prefieren tener la certeza de cuánto pagarán mensualmente durante toda la duración del préstamo. En el Sistema Americano, los pagos mensuales solo cubren los intereses del préstamo durante el período establecido. El capital, es decir, el monto total que se ha solicitado prestado, se devuelve en su totalidad al finalizar el plazo del préstamo. Este sistema resulta adecuado para quienes desean hacer pagos más pequeños durante la vigencia del préstamo y liquidar el capital al final del mismo.'
         },
         {
           question: '¿Cuál es la diferencia entre el Sistema Francés y el Americano?',
-          answer: 'El Sistema Francés permite plazos de hasta 5 años y financiamiento de hasta 40% del valor de tasación, con cuotas fijas que incluyen capital e interés. El Sistema Americano ofrece plazos de hasta 2 años y financiamiento de hasta 35% del valor de tasación.'
+          answer: 'La principal diferencia entre el Sistema Francés y el Sistema Americano radica en la estructura de los pagos y en el momento en que se realiza la devolución del capital. En el Sistema Francés, los pagos son fijos a lo largo del tiempo. Aunque al inicio una mayor parte del pago corresponde a los intereses, progresivamente, una mayor proporción de cada pago se destina a la amortización del capital. En cambio, en el Sistema Americano, los pagos mensuales solo cubren los intereses, y el capital no se abona hasta el final del plazo. En resumen, el Sistema Francés implica pagos fijos que van reduciendo tanto los intereses como el capital, mientras que el Sistema Americano establece pagos mensuales de intereses únicamente, y el capital se devuelve al término del préstamo.'
         },
         {
           question: '¿Cuánto me pueden prestar?',
-          answer: 'Dependiendo del sistema elegido, podemos financiar hasta un 40% del valor de tasación en el Sistema Francés y hasta un 35% en el Sistema Americano.'
+          answer: 'Dependiendo del sistema elegido, podemos financiar hasta un 50% del valor de tasación en el Sistema Francés y hasta un 35% en el Sistema Americano.'
         },
         {
           question: '¿Puedo cancelar anticipadamente el préstamo?',
-          answer: 'Sí, ofrecemos la posibilidad de precancelar total o parcialmente en cualquier momento, sin penalidad. Esta flexibilidad te permite reducir intereses y adaptar el préstamo a tus necesidades.'
+          answer: 'Sí, ofrecemos la posibilidad de precancelar total o parcialmente en cualquier momento, siempre que se haya abonado un mínimo de 6 meses de intereses, sin penalidad. Esta flexibilidad te permite reducir intereses y adaptar el préstamo a tus necesidades.'
         }
       ]
     },

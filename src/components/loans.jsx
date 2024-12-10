@@ -42,10 +42,10 @@ const Loans = () => {
           <h3>Sistema Francés</h3>
           <ul>
             <li>Crédito en U$S todo destino</li>
-            <li>Hasta un 40% del valor de tasación</li>
+            <li>Hasta un 50% del valor de tasación</li>
             <li>Hasta cinco años de plazo</li>
-            <li>Tasa fija (13% a 16%)</li>
-            <li>Posibilidad de precancelar total o parcialmente en cualquier momento, sin penalidad</li>
+            <li>Tasa fija (18%)</li>
+            <li>Posibilidad de cancelar parcial o totalmente la hipoteca antes de la fecha de su vencimiento sin penalidad o costos adicionales a partir de los seis meses de vigencia</li>
           </ul>
         </div>
         <div className="loan-card">
@@ -53,9 +53,9 @@ const Loans = () => {
           <ul>
             <li>Crédito en U$S todo destino</li>
             <li>Hasta un 35% del valor de tasación</li>
-            <li>Hasta dos años de plazo</li>
-            <li>Tasa fija (13% a 16%)</li>
-            <li>Posibilidad de precancelar total o parcialmente en cualquier momento, sin penalidad</li>
+            <li>Hasta tres años de plazo</li>
+            <li>Tasa fija (18%)</li>
+            <li>Posibilidad de cancelar parcial o totalmente la hipoteca antes de la fecha de su vencimiento sin penalidad o costos adicionales a partir de los seis meses de vigencia</li>
           </ul>
         </div>
       </section>    

@@ -68,6 +68,11 @@
   background-color: #6d28d9;
 }
 
+.header .cta-button {
+  animation: none;
+  opacity: 1;
+}
+
 .secondary-button {
   background-color: transparent;
   color: #7c3aed;
