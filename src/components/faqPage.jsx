@@ -100,7 +100,7 @@ const FAQPage = () => {
         },
         {
           question: '¿Cuánto me pueden prestar?',
-          answer: 'Dependiendo del sistema elegido, podemos financiar hasta un 50% del valor de tasación en el Sistema Francés y hasta un 35% en el Sistema Americano.'
+          answer: 'Dependiendo del sistema elegido, podemos financiar hasta un 45% del valor de tasación en el Sistema Francés y hasta un 40% en el Sistema Americano.'
         },
         {
           question: '¿Puedo cancelar anticipadamente el préstamo?',

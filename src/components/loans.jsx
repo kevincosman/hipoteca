@@ -41,18 +41,18 @@ const Loans = () => {
         <div className="loan-card">
           <h3>Sistema Francés</h3>
           <ul>
-            <li>Crédito en U$S todo destino</li>
+            <li>Crédito en U$S para compra o refacción de un inmueble</li>
             <li>Hasta un 50% del valor de tasación</li>
             <li>Hasta cinco años de plazo</li>
-            <li>Tasa fija (18%)</li>
+            <li>Tasa nominal anual (12%)</li>
             <li>Posibilidad de cancelar parcial o totalmente la hipoteca antes de la fecha de su vencimiento sin penalidad o costos adicionales a partir de los seis meses de vigencia</li>
           </ul>
         </div>
         <div className="loan-card">
           <h3>Sistema Americano</h3>
           <ul>
-            <li>Crédito en U$S todo destino</li>
-            <li>Hasta un 35% del valor de tasación</li>
+            <li>Crédito en U$S para compra o refacción de un inmueble</li>
+            <li>Hasta un 50% del valor de tasación</li>
             <li>Hasta tres años de plazo</li>
             <li>Tasa fija (18%)</li>
             <li>Posibilidad de cancelar parcial o totalmente la hipoteca antes de la fecha de su vencimiento sin penalidad o costos adicionales a partir de los seis meses de vigencia</li>
@@ -108,7 +108,7 @@ const Loans = () => {
           <div className="process-step">
             <div className="step-content">
               <div className="step-number">7</div>
-              <h3>Desembolso del préstamo</h3>
+              <h3>Efectivización del crédito</h3>
               <p>Transferimos los fondos para la compra de tu nueva propiedad.</p>
             </div>
           </div>

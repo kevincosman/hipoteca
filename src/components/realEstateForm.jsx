@@ -76,12 +76,12 @@ const RealEstateForm = () => {
           <div className="estateForm-benefit-card">
             <Wallet className="estateForm-benefit-icon" />
             <h3>Comisiones Competitivas</h3>
-            <p>Hasta 1% por operación concretada</p>
+            <p>Hasta 2% por operación concretada</p>
           </div>
           <div className="estateForm-benefit-card">
             <Building2 className="estateForm-benefit-icon" />
-            <h3>Tasas Preferenciales</h3>
-            <p>Hasta -2% anual para tus clientes</p>
+            <h3>Costos transparentes</h3>
+            <p>Tasa fija durante todo el préstamo</p>
           </div>
           <div className="estateForm-benefit-card">
             <Users className="estateForm-benefit-icon" />

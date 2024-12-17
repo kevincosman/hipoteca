@@ -158,7 +158,7 @@ const LoanCalculator = () => {
           </span>
         </div>
         <div className="detail-item">
-          <span className="detail-label">Tasa de interés anual:</span>
+          <span className="detail-label">Tasa nominal anual:</span>
           <span className="detail-value">{interestRate}%</span>
         </div>
         <div className="detail-item">

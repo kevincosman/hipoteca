@@ -23,7 +23,7 @@ const AboutUs = () => {
         <div className="feature-card">
           <div className="feature-icon users-icon"></div>
           <h3>Nuestro Equipo</h3>
-          <p>Contamos con expertos financieros dedicados a encontrar la mejor solución para tus necesidades de vivienda.</p>
+          <p>Contamos con expertos financieros dedicados a encontrar la mejor solución para créditos para tu vivienda.</p>
         </div>
         <div className="feature-card">
           <div className="feature-icon building-icon"></div>
@@ -47,8 +47,8 @@ const AboutUs = () => {
           <p>En préstamos otorgados</p>
         </div>
         <div className="stat-item">
-          <h4>98%</h4>
-          <p>Tasa de aprobación</p>
+          <h4>+30</h4>
+          <p>Años de experiencia</p>
         </div>
       </section>
       
@@ -59,7 +59,7 @@ const AboutUs = () => {
         </div>
         <div className="mission-vision-card">
           <h2>Nuestra Visión</h2>
-          <p>Establecernos como la opción preferida para préstamos hipotecarios en línea, reconocidos por nuestra dedicación a la satisfacción del cliente y nuestra capacidad para innovar.</p>
+          <p>Establecernos como la opción preferida para préstamos privados, reconocidos por nuestra dedicación a la satisfacción del cliente y nuestra capacidad para innovar.</p>
         </div>
       </section>
       
