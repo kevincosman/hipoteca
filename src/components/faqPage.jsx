@@ -72,11 +72,11 @@ const FAQPage = () => {
         },
         {
           question: '¿Por qué elegir Hipotecas Online?',
-          answer: 'Ofrecemos tasas competitivas, atención personalizada sin procedimientos burocráticos, resolución rápida (una semana desde que se cumplen los requisitos), y la tranquilidad de una tasa fija. Además, brindamos asesoramiento comercial, legal y notarial permanente sin cargo.'
+          answer: 'Ofrecemos tasas competitivas, atención personalizada sin procedimientos burocráticos, resolución rápida (una semana desde que se cumplen los requisitos), y la tranquilidad de una tasa fija. Además, brindamos asesoramiento comercial, legal y notarial permanente.'
         },
         {
           question: '¿Cuánto tiempo demora el proceso completo?',
-          answer: 'El tiempo de resolución de la operación es de una semana desde que se cumplen los requisitos para su evaluación. Una vez aprobado el crédito, la escrituración demora entre 5-10 días hábiles en CABA y 15-25 días hábiles en Provincia de Buenos Aires.'
+          answer: 'El tiempo de resolución de la operación es de una semana desde que se cumplen los requisitos para su evaluación. Una vez aprobado el crédito, la escrituración demora entre 10-15 días hábiles en CABA y 15-25 días hábiles en Provincia de Buenos Aires.'
         },
         {
           question: '¿Cómo comienza el proceso?',
@@ -92,7 +92,7 @@ const FAQPage = () => {
       questions: [
         {
           question: '¿Qué tipos de préstamos ofrecen?',
-          answer: 'Ofrecemos dos tipos principales de préstamos: el Sistema Francés y el Sistema Americano. En el Sistema Francés, los pagos mensuales son fijos, lo que implica que siempre se abonará la misma cantidad cada mes. Inicialmente, una mayor proporción de este pago corresponde al interés, pero con el paso del tiempo, una parte mayor se destina a reducir el capital del préstamo. Este sistema es ideal para quienes prefieren tener la certeza de cuánto pagarán mensualmente durante toda la duración del préstamo. En el Sistema Americano, los pagos mensuales solo cubren los intereses del préstamo durante el período establecido. El capital, es decir, el monto total que se ha solicitado prestado, se devuelve en su totalidad al finalizar el plazo del préstamo. Este sistema resulta adecuado para quienes desean hacer pagos más pequeños durante la vigencia del préstamo y liquidar el capital al final del mismo.'
+          answer: 'Ofrecemos dos tipos principales de préstamos: el Sistema Francés y el Sistema Americano. En el Sistema Francés, los pagos mensuales son fijos, lo que implica que siempre se abonará la misma cantidad cada mes. Cada cuota incluye una porción de devolución del capital adeudado y el servicio mensual de intereses. Este sistema es ideal para quienes prefieren tener la certeza de cuánto pagarán mensualmente durante toda la duración del préstamo. En el Sistema Americano, los pagos mensuales solo cubren los intereses del préstamo durante el período establecido. El capital, es decir, el monto total que se ha solicitado prestado, se devuelve en su totalidad al finalizar el plazo del préstamo. Este sistema resulta adecuado para quienes desean hacer pagos más pequeños durante la vigencia del préstamo y liquidar el capital al final del mismo.'
         },
         {
           question: '¿Cuál es la diferencia entre el Sistema Francés y el Americano?',
@@ -100,11 +100,11 @@ const FAQPage = () => {
         },
         {
           question: '¿Cuánto me pueden prestar?',
-          answer: 'Dependiendo del sistema elegido, podemos financiar hasta un 45% del valor de tasación en el Sistema Francés y hasta un 40% en el Sistema Americano.'
+          answer: 'Dependiendo del sistema elegido, podemos financiar hasta un 50% del valor de tasación en el Sistema Francés y hasta un 40% en el Sistema Americano.'
         },
         {
           question: '¿Puedo cancelar anticipadamente el préstamo?',
-          answer: 'Sí, ofrecemos la posibilidad de precancelar total o parcialmente en cualquier momento, siempre que se haya abonado un mínimo de 6 meses de intereses, sin penalidad. Esta flexibilidad te permite reducir intereses y adaptar el préstamo a tus necesidades.'
+          answer: 'Sí! Ofrecemos la posibilidad de precancelar total o parcialmente en cualquier momento sin penalidades, siempre que se hayan abonado un mínimo de 6 cuotas/meses de intereses según lo pactado . Esta flexibilidad te permite reducir intereses y adaptar el préstamo a tus necesidades.'
         }
       ]
     },
@@ -120,7 +120,7 @@ const FAQPage = () => {
         },
         {
           question: '¿Cómo es el proceso de escrituración?',
-          answer: 'El proceso de escrituración se realiza con escribanos de reconocida solvencia moral y profesional. Se encarga de verificar la validez de los títulos y realizar la escritura de préstamo con garantía hipotecaria, asegurando la seguridad jurídica de la operación.'
+          answer: 'El proceso de escrituración se realiza con escribanos de reconocida solvencia profesional. Se encargarán de verificar la validez de los títulos y realizar la escritura de compraventa de la vivienda y del préstamo con garantía hipotecaria, asegurando la seguridad jurídica de la operación.'
         },
         {
           question: '¿Es legal contratar en dólares?',
@@ -128,7 +128,7 @@ const FAQPage = () => {
         },
         {
           question: '¿Qué garantías tengo como cliente?',
-          answer: 'Como cliente, tenés la seguridad de una operación respaldada por profesionales calificados, contratos hipotecarios elaborados con alta experiencia legal, y una empresa regulada que garantiza el respeto y la equidad en las relaciones entre las partes.'
+          answer: 'Como cliente, tenés la seguridad de una operación respaldada por profesionales calificados, contratos hipotecarios elaborados con alta experiencia legal, y una empresa experimentada y profesional que garantiza el respeto y la equidad en las relaciones entre las partes.'
         }
       ]
     },

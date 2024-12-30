@@ -109,7 +109,7 @@ const Loans = () => {
             <div className="step-content">
               <div className="step-number">7</div>
               <h3>Efectivización del crédito</h3>
-              <p>Transferimos los fondos para la compra de tu nueva propiedad.</p>
+              <p>efectivizamos la transferencia de fondos al momento de la escrituración de la compra/hipoteca de la vivienda</p>
             </div>
           </div>
         </div>
