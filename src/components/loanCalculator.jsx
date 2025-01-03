@@ -5,37 +5,36 @@ import '../styles/loanCalculator.css';
 const LoanCalculator = () => {
   const [activeSystem, setActiveSystem] = useState('french');
   const [propertyValue, setPropertyValue] = useState(100000);
-  const [loanAmount, setLoanAmount] = useState(50000);
+  const [loanAmount, setLoanAmount] = useState(40000);
   const [numberOfPayments, setNumberOfPayments] = useState(24);
   const [monthlyPayment, setMonthlyPayment] = useState(0);
-  const interestRate = 18; // Tasa fija del 18%
+  const monthlyInterestRate = 1.1; // 1.1% mensual
 
   const navigate = useNavigate();
 
   useEffect(() => {
+    const calculateLoan = () => {
+      if (activeSystem === 'french') {
+        // Sistema Francés según la fórmula de la imagen
+        const interesTotal = ((numberOfPayments * monthlyInterestRate) / 100) + 1;
+        const payment = (loanAmount * interesTotal) / numberOfPayments;
+        setMonthlyPayment(payment);
+      } else {
+        // Sistema Americano: solo intereses mensuales
+        const payment = loanAmount * (monthlyInterestRate / 100);
+        setMonthlyPayment(payment);
+      }
+    };
+    
     calculateLoan();
-  // eslint-disable-next-line
-  }, [loanAmount, numberOfPayments, activeSystem]);
+  }, [loanAmount, numberOfPayments, activeSystem, monthlyInterestRate]);
 
   useEffect(() => {
-    const maxLoanAmount = propertyValue * 0.5; // 50% del valor
+    const maxLoanAmount = propertyValue * 0.4;
     setLoanAmount(prevAmount => Math.min(prevAmount, maxLoanAmount));
   }, [propertyValue]);
 
-  const calculateLoan = () => {
-    const r = interestRate / 100 / 12; // Tasa mensual
-    let payment;
 
-    if (activeSystem === 'french') {
-      // Sistema Francés: cuota fija que incluye capital e intereses
-      payment = (loanAmount * r * Math.pow(1 + r, numberOfPayments)) / (Math.pow(1 + r, numberOfPayments) - 1);
-    } else {
-      // Sistema Americano: solo intereses mensuales
-      payment = loanAmount * r;
-    }
-
-    setMonthlyPayment(payment);
-  };
 
   const formatCurrency = (value) => {
     return new Intl.NumberFormat('es-AR', { 
@@ -77,18 +76,10 @@ const LoanCalculator = () => {
       numberOfPayments,
       system: activeSystem,
       monthlyPayment,
-      interestRate
+      interestRate: monthlyInterestRate
     };
     navigate('/formulario', { state: { calculatorData } });
   };
-
-  useEffect(() => {
-    const maxPayments = activeSystem === 'french' ? 60 : 24;
-    if (numberOfPayments > maxPayments) {
-      setNumberOfPayments(maxPayments);
-    }
-  // eslint-disable-next-line
-  }, [activeSystem]);
 
   return (
     <div className="loan-calculator">
@@ -136,18 +127,18 @@ const LoanCalculator = () => {
       </div>
 
       <div className="loan-amount-container">
-        <label>Monto del préstamo (máx. 50% del valor del inmueble)</label>
+        <label>Monto del préstamo (máx. 40% del valor del inmueble)</label>
         <div className="loan-amount">{formatCurrency(loanAmount)}</div>
         <input
           type="range"
           min="10000"
-          max={propertyValue * 0.5}
+          max={propertyValue * 0.4}
           step="1000"
           value={loanAmount}
           onChange={(e) => setLoanAmount(Number(e.target.value))}
           className="slider"
         />
-        <p className="slider-caption">Monto máximo: {formatCurrency(propertyValue * 0.5)}</p>
+        <p className="slider-caption">Monto máximo: {formatCurrency(propertyValue * 0.4)}</p>
       </div>
 
       <div className="loan-details">
@@ -159,7 +150,7 @@ const LoanCalculator = () => {
         </div>
         <div className="detail-item">
           <span className="detail-label">Tasa nominal anual:</span>
-          <span className="detail-value">{interestRate}%</span>
+          <span className="detail-value">12%</span>
         </div>
         <div className="detail-item">
           <span className="detail-label">
