@@ -45,14 +45,13 @@ const RealEstateForm = () => {
     Observaciones: ${formData.message}`;
 
     try {
-      // Send email using EmailJS
       await emailjs.send(
-        'service_kcxjaxg',
-        'template_v5734ip',
+        'service_0om2gzc',
+        'template_ef08rpn',
         {
           message: contentMessage,
         },
-        'FMigd1rBuxkv3LJ-j'
+        'nqkPBucguCdwpKN8M'
       );
       navigate('/success');
     } catch (error) {
@@ -151,7 +150,7 @@ const RealEstateForm = () => {
                   value={formData.phone}
                   onChange={handleInputChange}
                   required
-                  placeholder="+54 11 1234-5678"
+                  placeholder="+54 11 2274-6026"
                   className="estateForm-input"
                 />
               </div>

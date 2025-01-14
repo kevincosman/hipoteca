@@ -51,13 +51,13 @@ const ApplicationForm = () => {
 
     try {
       await emailjs.send(
-        'service_kcxjaxg',
-        'template_73d9ot8',
+        'service_0om2gzc',
+        'template_p7lafb3',
         {
           message: contentMessage,
           to_email: 'kevincosman97@gmail.com',
         },
-        'FMigd1rBuxkv3LJ-j'
+        'nqkPBucguCdwpKN8M'
       );
       navigate('/success');
     } catch (error) {

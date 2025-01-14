@@ -25,8 +25,8 @@ const Footer = () => {
           <div className="footer-column">
             <h3>Contacto</h3>
             <ul>
-              <li>+54 11 1234-5678</li>
-              <li>info@hipotecasonline.com</li>
+              <li>+54 11 2274-6026</li>
+              <li>consultas@hipotecasonline.com</li>
             </ul>
           </div>
         </div>

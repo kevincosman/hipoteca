@@ -5,7 +5,7 @@ import '../styles/agentSection.css';
 const AgentSection = () => {
 
   const handleClickWhatsapp = () => {
-    window.open('https://wa.me/5491112345678', '_blank');
+    window.open('https://wa.me/5491122746026', '_blank');
   };
 
   return (
