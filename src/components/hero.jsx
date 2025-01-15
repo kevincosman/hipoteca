@@ -34,7 +34,7 @@ const Hero = () => {
             </h1>
             
             <p className="hero-description">
-              Créditos hipotecarios para la compra de tu vivienda con<br />
+              Créditos hipotecarios para la compra de tu vivienda con <br />
               las mejores tasas del mercado
             </p>
             
