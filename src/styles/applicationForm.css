@@ -1,15 +1,23 @@
 .appFormContainer {
-  max-width: 1200px;
+  max-width: 600px;
   margin: 100px auto;
   display: flex;
+  flex-direction: column;
   background-color: #fff;
-  border-radius: 24px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.5s ease, transform 0.5s ease;
   margin-top: 12rem;
+}
+
+@media (min-width: 992px) {
+  .appFormContainer {
+    max-width: 1200px;
+    flex-direction: row;
+    border-radius: 24px;
+  }
 }
 
 .appFormVisible {
@@ -17,49 +25,94 @@
   transform: translateY(0);
 }
 
-/* Estilos del formulario - mantenidos del original */
+/* Estilos del formulario */
 .appFormContent {
   flex: 3;
-  padding: 40px;
+  padding: 30px;
   background: linear-gradient(135deg, #f6f0ff 0%, #ffffff 100%);
 }
 
+@media (min-width: 992px) {
+  .appFormContent {
+    padding: 40px;
+  }
+}
+
 .appFormTitle {
-  font-size: 32px;
+  font-size: 28px;
   color: #1a1a1a;
   margin-bottom: 10px;
   text-align: center;
   font-weight: bold;
 }
 
+@media (min-width: 992px) {
+  .appFormTitle {
+    font-size: 32px;
+  }
+}
+
 .appFormSubtitle {
-  font-size: 18px;
+  font-size: 16px;
   color: #666;
   margin-bottom: 30px;
   text-align: center;
 }
 
+@media (min-width: 992px) {
+  .appFormSubtitle {
+    font-size: 18px;
+  }
+}
+
 .appFormGrid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 24px;
 }
 
-.appFormGroup {
-  margin-bottom: 20px;
+/* Estilos para la vista móvil (por defecto) */
+.appFormRow {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
 }
 
-.appFormGroup label {
+/* Estilos para escritorio: organizar en filas horizontales con dos columnas */
+@media (min-width: 768px) {
+  .appFormRow {
+    flex-direction: row;
+    gap: 24px;
+  }
+
+  .appFormFieldGroup {
+    flex: 1;
+    margin-bottom: 0;
+  }
+
+  .appFormCommentGroup {
+    width: 100%;
+  }
+}
+
+.appFormFieldGroup,
+.appFormCommentGroup {
+  margin-bottom: 8px;
+}
+
+.appFormFieldGroup label,
+.appFormCommentGroup label {
   display: block;
   font-size: 16px;
   color: #4a4a4a;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
   font-weight: 500;
 }
 
-.appFormGroup input,
-.appFormGroup select,
-.appFormGroup textarea {
+.appFormFieldGroup input,
+.appFormFieldGroup select,
+.appFormCommentGroup textarea {
   width: 100%;
   padding: 12px;
   border: 2px solid #e0e0e0;
@@ -69,45 +122,18 @@
   background-color: white;
 }
 
-.appFormGroup input:focus,
-.appFormGroup select:focus,
-.appFormGroup textarea:focus {
+.appFormFieldGroup input:focus,
+.appFormFieldGroup select:focus,
+.appFormCommentGroup textarea:focus {
   border-color: #7c3aed;
   box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
   outline: none;
 }
 
-.appFormGroup textarea {
+.appFormCommentGroup textarea {
   resize: vertical;
   min-height: 120px;
-}
-
-.appFormGroup textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #e5e7eb;
-  border-radius: 8px;
-  resize: vertical;
-  font-family: 'Arial', sans-serif; /* Cambiado a Arial */
-  font-size: 16px;
-  color: #333;
-  transition: border-color 0.3s ease;
-}
-
-.appFormGroup textarea::placeholder {
   font-family: 'Arial', sans-serif;
-  color: #9ca3af;
-  font-size: 16px;
-}
-
-.appFormGroup textarea:focus {
-  outline: none;
-  border-color: #7c3aed;
-  box-shadow: 0 0 0 2px rgba(124, 58, 237, 0.1);
-}
-
-.appFormFullWidth {
-  grid-column: span 2;
 }
 
 .appFormSubmit {
@@ -136,12 +162,46 @@
   transform: none;
 }
 
-/* Sidebar Styles - Mejorados */
+.appFormSubmit {
+  width: 100%;
+  padding: 16px;
+  background-color: #7c3aed;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+  margin-top: 10px;
+}
+
+.appFormSubmit:hover {
+  background-color: #6d28d9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.2);
+}
+
+.appFormSubmit:disabled {
+  background-color: #9ca3af;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Sidebar Styles */
 .appFormSidebar {
-  flex: 2;
-  padding: 48px 40px;
-  background-color: #f8f7ff;
-  position: relative;
+  display: none;
+}
+
+@media (min-width: 992px) {
+  .appFormSidebar {
+    display: block;
+    flex: 2;
+    padding: 48px 40px;
+    background-color: #f8f7ff;
+    position: relative;
+  }
 }
 
 .appFormSidebarContent {
@@ -253,43 +313,40 @@
   font-size: 14px;
 }
 
-@media (max-width: 992px) {
-  .appFormContainer {
-    flex-direction: column;
-    margin: 20px;
-    border-radius: 16px;
-    margin-top: 12rem;
-  }
-
-  .appFormGrid {
-    grid-template-columns: 1fr;
-  }
-
-  .appFormFullWidth {
-    grid-column: span 1;
-  }
-
-  .appFormContent,
-  .appFormSidebar {
-    padding: 30px;
-  }
-
-  .appFormBenefits {
-    gap: 24px;
-    margin-bottom: 32px;
-  }
-
-  .appFormBenefit {
-    padding: 12px;
-  }
-
-  .appFormSidebar {
-    background-color: #f8f7ff;
-  }
-}
-
+/* Ajustes específicos para móvil */
 @media (max-width: 600px) {
   .appFormContainer {
     margin-top: 7rem;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .appFormContent {
+    padding: 20px;
+  }
+
+  .appFormTitle {
+    font-size: 24px;
+  }
+
+  .appFormSubtitle {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  .appFormGroup label {
+    font-size: 14px;
+  }
+
+  .appFormGroup input,
+  .appFormGroup select,
+  .appFormGroup textarea {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .appFormSubmit {
+    padding: 14px;
+    font-size: 16px;
   }
 }

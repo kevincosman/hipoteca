@@ -8,17 +8,17 @@ const ApplicationForm = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const calculatorData = location.state?.calculatorData || {};
-  
+
   const [isVisible, setIsVisible] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  
+
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
-    email: '',
-    phone: '',
     documentType: 'dni',
     documentNumber: '',
+    email: '',
+    phone: '',
     comments: ''
   });
 
@@ -75,8 +75,9 @@ const ApplicationForm = () => {
         <p className="appFormSubtitle">Complete los siguientes datos para iniciar su solicitud</p>
 
         <form onSubmit={handleSubmit} className="appFormGrid">
-          <div className="appFormCol">
-            <div className="appFormGroup">
+          {/* Primera fila: Nombre y Apellido */}
+          <div className="appFormRow">
+            <div className="appFormFieldGroup">
               <label>Nombre</label>
               <input
                 type="text"
@@ -86,17 +87,22 @@ const ApplicationForm = () => {
                 required
               />
             </div>
-            <div className="appFormGroup">
-              <label>Email</label>
+
+            <div className="appFormFieldGroup">
+              <label>Apellido</label>
               <input
-                type="email"
-                name="email"
-                value={formData.email}
+                type="text"
+                name="lastName"
+                value={formData.lastName}
                 onChange={handleChange}
                 required
               />
             </div>
-            <div className="appFormGroup">
+          </div>
+
+          {/* Segunda fila: Tipo de documento y Número de documento */}
+          <div className="appFormRow">
+            <div className="appFormFieldGroup">
               <label>Tipo de documento</label>
               <select
                 name="documentType"
@@ -108,30 +114,8 @@ const ApplicationForm = () => {
                 <option value="passport">Pasaporte</option>
               </select>
             </div>
-          </div>
-          
-          <div className="appFormCol">
-            <div className="appFormGroup">
-              <label>Apellido</label>
-              <input
-                type="text"
-                name="lastName"
-                value={formData.lastName}
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <div className="appFormGroup">
-              <label>Teléfono</label>
-              <input
-                type="tel"
-                name="phone"
-                value={formData.phone}
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <div className="appFormGroup">
+
+            <div className="appFormFieldGroup">
               <label>Número de documento</label>
               <input
                 type="text"
@@ -142,21 +126,50 @@ const ApplicationForm = () => {
               />
             </div>
           </div>
-          
-          <div className="appFormFullWidth">
-            <div className="appFormGroup">
+
+          {/* Tercera fila: Email y Teléfono */}
+          <div className="appFormRow">
+            <div className="appFormFieldGroup">
+              <label>Email</label>
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+              />
+            </div>
+
+            <div className="appFormFieldGroup">
+              <label>Teléfono</label>
+              <input
+                type="tel"
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
+                required
+              />
+            </div>
+          </div>
+
+          {/* Cuarta fila: Comentarios adicionales */}
+          <div className="appFormRow">
+            <div className="appFormCommentGroup">
               <label>Comentarios adicionales</label>
               <textarea
                 name="comments"
                 value={formData.comments}
                 onChange={handleChange}
-                rows="4"
+                rows="5"
                 placeholder="Agregue cualquier información adicional que considere relevante"
               />
             </div>
+          </div>
 
-            <button 
-              type="submit" 
+          {/* Botón separado en una fila propia */}
+          <div className="appFormRow">
+            <button
+              type="submit"
               className="appFormSubmit"
               disabled={isSubmitting}
             >
@@ -169,18 +182,8 @@ const ApplicationForm = () => {
       <div className="appFormSidebar">
         <div className="appFormSidebarContent">
           <h2>Beneficios de nuestros préstamos</h2>
-          
-          <div className="appFormBenefits">
-            {/*<div className="appFormBenefit">
-              <div className="appFormBenefitIcon">
-                <Clock size={24} />
-              </div>
-              <div className="appFormBenefitText">
-                <h3>Respuesta rápida</h3>
-                <p>Evaluación en 24-48hs</p>
-              </div>
-            </div>*/}
 
+          <div className="appFormBenefits">
             <div className="appFormBenefit">
               <div className="appFormBenefitIcon">
                 <Shield size={24} />
